@@ -15,7 +15,7 @@ const VerifyEmailPage = () => {
   useEffect(() => {
     const verifyEmail = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/sellerdata/user/verify/${token}`);
+        const response = await axios.get(`https://localestartup.vercel.app/sellerdata/user/verify/${token}`);
 
         if (response.data && response.data.user) {
           const userData = response.data.user;
