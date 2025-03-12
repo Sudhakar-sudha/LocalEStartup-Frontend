@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-
-// const BASE_URL = "http://localhost:3000"; // Define the base URL
-const BASE_URL ="https://localestartup-backend.onrender.com";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const VerifyEmailPage = () => {
   const [status, setStatus] = useState("loading");

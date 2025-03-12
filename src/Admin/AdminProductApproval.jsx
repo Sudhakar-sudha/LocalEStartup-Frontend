@@ -4,8 +4,8 @@ import PendingProducts from "./PendingProducts";
 import ApprovedProducts from "./ApprovedProducts";
 import RejectedProducts from "./RejectedProducts";
 
-// const BASE_URL = "http://localhost:3000"; // Define base URL here
-const BASE_URL ="https://localestartup-backend.onrender.com";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 const AdminProductApproval = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);

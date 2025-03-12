@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 import { IoReload } from "react-icons/io5";
 import { FaCheckCircle } from "react-icons/fa";
 
-// const BASE_URL = "http://localhost:3000"; // Define the base URL
-const BASE_URL ="https://localestartup-backend.onrender.com";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+const SUPER_URL = import.meta.env.VITE_SUPER_URL;
 
 const OTPVerification = () => {
   const location = useLocation();
@@ -68,7 +68,7 @@ const OTPVerification = () => {
         const token = result.token; // Get token from backend
 
         // Set the redirect URL (useEffect will handle the delay)
-        setRedirectUrl(`https://localestartup.vercel.app/sellerdata/user/verify/${token}`);
+        setRedirectUrl(`${SUPER_URL}/sellerdata/user/verify/${token}`);
       } else {
         setMessage(result.error);
       }

@@ -4,8 +4,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-// const BASE_URL = "http://localhost:3000"; // Define the base URL
-const BASE_URL ="https://localestartup-backend.onrender.com";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const ProductSellers = () => {
   const [sellers, setSellers] = useState([]);

@@ -7,8 +7,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import { FaBox, FaShoppingCart, FaCheckCircle, FaPlus } from "react-icons/fa";
 
-// const BASE_URL = "http://localhost:3000";
-const BASE_URL ="https://localestartup-backend.onrender.com";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const SellerDashboard = () => {
   const { seller, setSeller } = useContext(SellerContext);

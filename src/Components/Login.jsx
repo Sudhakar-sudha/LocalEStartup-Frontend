@@ -7,8 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
-// const BASE_URL = "http://localhost:3000"; // Define the base URL
-const BASE_URL ="https://localestartup-backend.onrender.com";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +17,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-  
+  console.log(BASE_URL);
     try {
       // Send email and password to the backend for authentication
       const response = await axios.post(

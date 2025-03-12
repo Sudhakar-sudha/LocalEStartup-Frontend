@@ -6,8 +6,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { SellerContext } from "./SellerContext";
 import axios from "axios";
 
-// const BASE_URL = "http://localhost:3000"; // Define the base URL
-const BASE_URL ="https://localestartup-backend.onrender.com";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export default function ProductForm() {
   const { seller } = useContext(SellerContext);
