@@ -68,7 +68,7 @@ const OTPVerification = () => {
         const token = result.token; // Get token from backend
 
         // Set the redirect URL (useEffect will handle the delay)
-        setRedirectUrl(`${BASE_URL}/sellerdata/user/verify/${token}`);
+        setRedirectUrl(`https://localestartup.vercel.app/sellerdata/user/verify/${token}`);
       } else {
         setMessage(result.error);
       }
