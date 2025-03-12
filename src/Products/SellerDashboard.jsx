@@ -28,7 +28,7 @@ const SellerDashboard = () => {
 
     if (!sessionData || !sessionData.token) {
       setMessage("No valid session found. Redirecting to login...");
-      setTimeout(() => navigate("/sellerlogin"), 3000);
+      setTimeout(() => navigate("/"), 3000);
       return;
     }
 
@@ -36,7 +36,7 @@ const SellerDashboard = () => {
     if (currentTime - sessionData.timestamp > 24 * 60 * 60 * 1000) {
       localStorage.removeItem("sellerUser");
       setMessage("Session expired. Please log in again.");
-      setTimeout(() => navigate("/sellerlogin"), 3000);
+      setTimeout(() => navigate("/"), 3000);
       return;
     }
 

@@ -22,7 +22,7 @@ const AdminSideBar = ({ toggleSidebar }) => {
     if (!token) {
       alert("No token found! Logging out.");
       localStorage.removeItem("sellerUser");
-      navigate("/sellerlogin", { replace: true });
+      navigate("/", { replace: true });
       return;
     }
 
