@@ -35,7 +35,7 @@ const App = () => {
         <Route path="/" element={<HomeSection />} />
         <Route path="/register" element={<Register />} />
         <Route path="/sellerlogin" element={<Login />} />
-        <Route path="sellerdata/user/verify/:token" element={<VerifyEmail />} />
+        <Route path="/sellerdata/user/verify/:token" element={<VerifyEmail />} />
         <Route path="/otp-verification" element={<OTPVerification />} />
         <Route path="/adminlogin" element={<AdminLogin />} />
 
