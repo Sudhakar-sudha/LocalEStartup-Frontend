@@ -68,7 +68,7 @@ const OTPVerification = () => {
         const token = result.token; // Get token from backend
 
         // Set the redirect URL (useEffect will handle the delay)
-        setRedirectUrl(`http://localhost:5173/sellerdata/user/verify/${token}`);
+        setRedirectUrl(`${BASE_URL}/sellerdata/user/verify/${token}`);
       } else {
         setMessage(result.error);
       }
