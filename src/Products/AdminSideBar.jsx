@@ -37,7 +37,7 @@ const AdminSideBar = ({ toggleSidebar }) => {
       localStorage.removeItem("sellerUser");
 
       // Redirect to login page
-      navigate("/sellerlogin", { replace: true });
+      navigate("/", { replace: true });
     } catch (error) {
       console.error("Error logging out:", error.response?.data?.message || error.message);
       alert("Logout failed! Please try again.");
