@@ -13,17 +13,32 @@ const Customers = () => {
   const usersPerPage = 10;
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/user/getusers`);
-        setUsers(response.data);
-      } catch (error) {
-        console.error("Error fetching users:", error);
-      }
-    };
-
     fetchUsers();
   }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/user/getusers`);
+      setUsers(response.data);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  };
+
+  // ✅ Handle Delete User
+  const handleDelete = async (userId) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this user?");
+    if (!confirmDelete) return;
+
+    try {
+      await axios.delete(`${BASE_URL}/user/deleteUser/${userId}`);
+      setUsers(users.filter(user => user._id !== userId)); // ✅ Remove user from state
+      alert("User deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      alert("Failed to delete user. Please try again.");
+    }
+  };
 
   // Search filter
   const filteredUsers = users.filter(user =>
@@ -57,7 +72,9 @@ const Customers = () => {
               <th className="p-3 text-left">Name</th>
               <th className="p-3 text-left">Email</th>
               <th className="p-3 text-left">Phone</th>
+              <th className="p-3 text-left">Address</th>
               <th className="p-3 text-left">Registered On</th>
+              <th className="p-3 text-left">Actions</th> {/* ✅ New column for actions */}
             </tr>
           </thead>
           <tbody>
@@ -67,12 +84,22 @@ const Customers = () => {
                   <td className="p-3">{user.name}</td>
                   <td className="p-3">{user.email}</td>
                   <td className="p-3">{user.phone}</td>
+                  <td className="p-3">{user.address}</td>
                   <td className="p-3">{new Date(user.createdAt).toLocaleDateString()}</td>
+                  <td className="p-3">
+                    {/* ✅ Delete Button */}
+                    <button
+                      className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600"
+                      onClick={() => handleDelete(user._id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="4" className="text-center p-4">No users found</td>
+                <td colSpan="6" className="text-center p-4">No users found</td>
               </tr>
             )}
           </tbody>
