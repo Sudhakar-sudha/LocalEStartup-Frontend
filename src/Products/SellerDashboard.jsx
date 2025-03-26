@@ -21,6 +21,7 @@ const SellerDashboard = () => {
     totalOrders: 0,
     ordersDelivered: 0,
   });
+  
   const navigate = useNavigate();
 
   useEffect(() => {

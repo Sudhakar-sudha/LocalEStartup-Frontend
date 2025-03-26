@@ -1,0 +1,14 @@
+/* In your global CSS file (e.g., styles.css or App.css) */
+.custom-dark-blue-shadow {
+    filter: drop-shadow(0 0 10px rgba(0, 112, 255, 0.8)) 
+            drop-shadow(0 0 20px rgba(0, 112, 255, 0.6));
+}
+
+.custom-light-yellow-shadow {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 153, 0.8)) 
+            drop-shadow(0 0 20px rgba(255, 255, 153, 0.6));
+}
+.custom-white-shadow {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)) 
+            drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+}
