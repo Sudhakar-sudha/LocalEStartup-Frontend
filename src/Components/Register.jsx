@@ -31,6 +31,7 @@ const showPopup = () => {
 };
 
 const Register = () => {
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -141,6 +142,8 @@ const Register = () => {
 
     // Handle form submit
     const handleSubmit = async (e) => {
+        setLoading(true); // Set loading to true when form submission starts
+
         e.preventDefault();
 
         // Validate the current step before submitting
@@ -180,7 +183,11 @@ const Register = () => {
                 console.error('Error connecting to backend:', error);
                 alert('An error occurred while submitting the form. Please try again.');
             }
+            finally {
+                setLoading(false); // Reset loading to false after API call completes
+            }
         }
+
     };
 
 
@@ -674,14 +681,24 @@ const Register = () => {
                                     Next
                                 </button>
                             ) : (
+                                // <button
+                                //     type="button"
+                                //     onClick={handleSubmit}
+                                //     disabled={!isAgreedToTerms}
+                                //     className={` mt-4 px-6 py-2 text-white font-medium rounded-lg ${isAgreedToTerms ? "bg-green-500 hover:bg-green-600" : "bg-gray-400 cursor-not-allowed"
+                                //         }`}
+                                // >
+                                //     Submit
+                                // </button>
+
                                 <button
                                     type="button"
                                     onClick={handleSubmit}
-                                    disabled={!isAgreedToTerms}
-                                    className={` mt-4 px-6 py-2 text-white font-medium rounded-lg ${isAgreedToTerms ? "bg-green-500 hover:bg-green-600" : "bg-gray-400 cursor-not-allowed"
+                                    disabled={!isAgreedToTerms || loading}
+                                    className={`mt-4 px-6 py-2 text-white font-medium rounded-lg ${isAgreedToTerms && !loading ? "bg-green-500 hover:bg-green-600" : "bg-gray-400 cursor-not-allowed"
                                         }`}
                                 >
-                                    Submit
+                                    {loading ? "Submitting..." : "Submit"}
                                 </button>
                             )}
                             {/* Popup Modal */}

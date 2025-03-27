@@ -186,7 +186,9 @@ console.log(userRes, sellerRes, productRes, orderRes);
                     <div className="w-full text-center md:hidden mb-6">
                         <h2 className="text-4xl font-bold text-yellow-400">About Us</h2>
                     </div>
-                    <div className="md:w-1/3 flex flex-col items-center md:items-start">
+
+                    
+                    {/* <div className="md:w-1/3 flex flex-col items-center md:items-start">
                         <img
                             // src={ceo}
                             src="https://res.cloudinary.com/dlfan4caj/image/upload/v1742983651/sudhakar_afqftl.png"
@@ -197,18 +199,18 @@ console.log(userRes, sellerRes, productRes, orderRes);
                             <h3 className="text-2xl font-bold text-yellow-400">Sudhakar</h3>
                             <p className="text-lg text-gray-600">Founder & CEO</p>
                         </div>
-                    </div>
-                    {/* <div className="md:w-1/3 flex flex-col items-center md:items-start">
+                    </div> */}
+
+
+                    <div className="md:w-1/3 flex flex-col items-center md:items-start">
                         <img
                             src={Logo}
-                            alt="CEO Sudhakar"
+                            alt="Logo"
                             className="w-[300vw] max-w-[200px] md:max-w-[250px] lg:max-w-[350px] "
-                        /> */}
-                        {/* <div className="mt-4 text-center md:ml-20">
-                            <h3 className="text-2xl font-bold text-blue-800">Sudhakar</h3>
-                            <p className="text-lg text-gray-600">Founder & CEO</p>
-                        </div> */}
-                    {/* </div> */}
+                        />
+                    </div>
+
+
                     <div className="md:w-2/3 text-center md:text-left md:pl-12 mt-6 md:mt-0">
                         <h2 className="hidden md:block text-4xl font-bold text-yellow-400">About Us</h2>
                         <p className="mt-4 text-lg text-gray-700 text-justify">
@@ -231,17 +233,19 @@ console.log(userRes, sellerRes, productRes, orderRes);
               <section  className="py-16 text-center bg-blue-50">
             <h2 className="text-4xl font-bold text-yellow-400">Our Growing Community</h2>
             <div className="mt-8 flex flex-wrap justify-center gap-8">
+              
                 {[
-                    { label: "Users", count: stats.users },
-                    { label: "Sellers", count: stats.sellers },
-                    { label: "Products", count: stats.products },
-                    { label: "Orders Delivered", count: stats.orders }
-                ].map((stat, index) => (
-                    <motion.div key={index} whileHover={{ scale: 1.1 }} className="bg-white shadow-lg p-6 rounded-lg">
-                        <h3 className="text-2xl font-bold">{stat.count.toLocaleString()}+</h3>
-                        <p className="text-gray-600">{stat.label}</p>
-                    </motion.div>
-                ))}
+    { label: "Users", count: stats?.users ?? 0 },
+    { label: "Sellers", count: stats?.sellers ?? 0 },
+    { label: "Products", count: stats?.products ?? 0 },
+    { label: "Orders Delivered", count: stats?.orders ?? 0 }
+].map((stat, index) => (
+    <motion.div key={index} whileHover={{ scale: 1.1 }} className="bg-white shadow-lg p-6 rounded-lg">
+        <h3 className="text-2xl font-bold">{stat.count.toLocaleString()}+</h3>
+        <p className="text-gray-600">{stat.label}</p>
+    </motion.div>
+))}
+
             </div>
         </section>
      

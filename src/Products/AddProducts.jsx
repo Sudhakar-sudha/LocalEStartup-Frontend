@@ -13,6 +13,7 @@ export default function ProductForm() {
   const { register, handleSubmit, watch, setValue, reset, control, formState: { errors } } = useForm();
   const [categories, setCategories] = useState([]);
   const [imagePreviews, setImagePreviews] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     axios.get(`${BASE_URL}/product/categories`)
@@ -51,6 +52,8 @@ export default function ProductForm() {
   const { fields, append, remove } = useFieldArray({ control, name: "additionalInformation" });
 
   const onSubmit = async (data) => {
+    setLoading(true); // Set loading to true when form submission starts
+  
     const formData = new FormData();
     Object.keys(data).forEach((key) => {
       if (key === "images") {
@@ -61,9 +64,9 @@ export default function ProductForm() {
         formData.append(key, data[key]);
       }
     });
-
+  
     formData.append("seller", seller.id);
-
+  
     try {
       await axios.post(`${BASE_URL}/product/product/upload`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -77,8 +80,11 @@ export default function ProductForm() {
       } else {
         alert("❌ An unexpected error occurred. Please try again.");
       }
+    } finally {
+      setLoading(false); // Reset loading to false after API call completes
     }
   };
+  
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-xl">
@@ -149,7 +155,15 @@ export default function ProductForm() {
         <div className="mt-2 flex flex-wrap gap-2">{imagePreviews.map((src, index) => (<img key={index} src={src} alt="Preview" className="w-20 h-20 object-cover rounded-md border" />))}</div>
 
         {/* Submit Button */}
-        <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Add Product</button>
+        {/* <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Add Product</button> */}
+        <button 
+  type="submit" 
+  className={`w-full text-white p-2 rounded-md ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"}`} 
+  disabled={loading}
+>
+  {loading ? "Adding Product..." : "Add Product"}
+</button>
+
       </form>
     </div>
   );

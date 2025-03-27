@@ -27,7 +27,7 @@ const AdminSideBar = ({ toggleSidebar }) => {
     }
 
     // Alert token (for debugging)
-    alert(`Logging out with token: ${token}`);
+    alert(`Logout successfully`);
 
     try {
       // Send request to backend to delete token
