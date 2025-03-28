@@ -40,7 +40,7 @@ const ProductSellers = () => {
 
   return (
     <div className="p-6 min-h-screen">
-      <h1 className="text-4xl font-semibold text-blue-600 mb-6">Seller Details</h1>
+      <h1 className="text-4xl font-semibold text-black mb-6">Seller Details</h1>
 
       <div className="overflow-x-auto bg-white shadow-md rounded-lg p-4">
         <table className="min-w-full border-collapse border border-gray-300">

@@ -17,7 +17,7 @@ const AdminLayout = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col transition-all duration-300">
         {/* Navbar for Mobile */}
-        <div className="md:hidden flex items-center justify-between p-4 bg-blue-900 text-white fixed top-0 w-full z-50">
+        <div className="md:hidden flex items-center justify-between p-4 bg-orange-500 text-white fixed top-0 w-full z-50">
           <button onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             {isSidebarOpen ? <IoClose className="text-2xl" /> : <FiMenu className="text-2xl" />}
           </button>

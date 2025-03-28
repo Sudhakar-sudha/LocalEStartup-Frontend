@@ -91,7 +91,7 @@ import React from 'react'
 
 const Payments = () => {
   return (
-    <div>Payments</div>
+    <div className=' text-4xl font-normal ml-10 text-black'>Payments</div>
   )
 }
 

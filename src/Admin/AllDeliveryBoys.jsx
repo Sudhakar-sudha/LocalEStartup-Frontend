@@ -172,7 +172,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4 text-center text-orange-600">Delivery Boys</h1>
+      <h1 className="text-2xl font-bold mb-4  text-black">Delivery Boys</h1>
 
       {loading && <p className="text-center text-lg">Loading...</p>}
       {error && <p className="text-red-500 text-center">{error}</p>}
