@@ -7,7 +7,7 @@ const Orders = () => {
     <div className=' text-4xl font-normal text-blue-600'>
         <h1>Orders</h1>
         {/* <AdminProductApproval/> */}
-        <DeliveryBoyLogin/>
+        {/* <DeliveryBoyLogin/> */}
     </div>
   )
 }

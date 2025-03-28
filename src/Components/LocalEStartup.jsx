@@ -8,9 +8,9 @@ import mobileFrontPage from "/phone.png";
 import ceo from '/sudhakar.png'
 import "../App.css";
 import axios from "axios";
-import sellerImage from "/background.jpg";
-import userAppImage from "/phone.png";
-import deliveryAppImage from "/phone.png";
+import sellerImage from "/seller.png";
+import userAppImage from "/user.jpg";
+import deliveryAppImage from "/delivery.jpg";
 import image from "/image.png";
 import { FaStore, FaShoppingCart, FaTruck } from "react-icons/fa";
 import { FaPhoneAlt, FaEnvelope, FaCommentDots, FaMapMarkerAlt } from "react-icons/fa";

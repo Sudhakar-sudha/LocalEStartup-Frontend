@@ -68,7 +68,7 @@ const Customers = () => {
       <div className="overflow-x-auto">
         <table className="w-full border-collapse bg-white shadow-md rounded-lg">
           <thead>
-            <tr className="bg-blue-500 text-white">
+            <tr className="bg-orange-500 text-white">
               <th className="p-3 text-left">Name</th>
               <th className="p-3 text-left">Email</th>
               <th className="p-3 text-left">Phone</th>
