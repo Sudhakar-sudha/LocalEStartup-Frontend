@@ -438,6 +438,7 @@ const LocalEStartup = () => {
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
+                  target="_blank"
                   className="mt-6 inline-block bg-green-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-700 transition"
                 >
                   Download User App
@@ -469,6 +470,7 @@ const LocalEStartup = () => {
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
+                  target="_blank"
                   className="mt-6 inline-block bg-orange-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition"
                 >
                   Download Delivery App
