@@ -433,7 +433,8 @@ const LocalEStartup = () => {
                 </p>
 
                 <motion.a
-                  onClick={() => handleDownload("/apps/user-app.apk")}
+                 
+                  href="https://drive.google.com/file/d/1tgV4505aUkym3VMQYV9h3-G4RtjVNwtT/view?usp=sharing"
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
