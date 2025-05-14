@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const OTPVerification = () => {
   const location = useLocation();
@@ -31,7 +32,7 @@ const OTPVerification = () => {
     try {
       console.log("Sending OTP verification request:", email, otp);
   
-      const response = await axios.post("http://localhost:3000/api/deliveryboys/verify-otp", { email, otp });
+      const response = await axios.post(`${BASE_URL}/api/deliveryboys/verify-otp`, { email, otp });
   
       console.log("Response received:", response.data);
   
@@ -67,7 +68,7 @@ const OTPVerification = () => {
     try {
       console.log("Requesting OTP resend for:", email);
   
-      await axios.post("http://localhost:3000/api/deliveryboys/resend-otp", { email });
+      await axios.post(`${BASE_URL}/api/deliveryboys/resend-otp`, { email });
       
       alert("New OTP sent to your email.");
     } catch (error) {

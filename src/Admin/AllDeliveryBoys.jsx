@@ -196,7 +196,7 @@ const AdminDashboard = () => {
                     "Account No",
                     "Selfie",
                     "Aadhar Photo",
-                    "Status",
+                   
                     "Admin Approval",
                     "Verification Status",
                     "Actions",
@@ -236,17 +236,7 @@ const AdminDashboard = () => {
                         />
                         <p className="text-xs text-gray-600 mt-1">Aadhar: {boy.aadharNumber || "N/A"}</p>
                       </td>
-                      <td className="border p-2">
-                        <span
-                          className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                            boy.status === "Active"
-                              ? "bg-green-200 text-green-700"
-                              : "bg-gray-200 text-gray-700"
-                          }`}
-                        >
-                          {boy.status || "Pending"}
-                        </span>
-                      </td>
+                 
                       <td className="border p-2">
                         <span
                           className={`px-2 py-1 rounded-full text-xs font-semibold ${

@@ -22,6 +22,7 @@ const SellerDashboard = () => {
     ordersDelivered: 0,
   });
   
+  const [orderCount, setOrderCount] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -50,6 +51,10 @@ const SellerDashboard = () => {
       return;
     }
 
+
+
+
+
     const fetchProductsBySeller = async () => {
       try {
         const response = await axios.get(`${BASE_URL}/product/product/sellerproductcount/${seller.id}`);
@@ -64,6 +69,22 @@ const SellerDashboard = () => {
     fetchProductsBySeller();
   }, [seller]);
 
+
+  useEffect(() => {
+    const fetchSellerOrderCount = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/api/orders/sellerordercount/${seller.id}`);
+        setOrderCount(response.data.count);
+      } catch (error) {
+        console.error("🚨 Error fetching seller order count:", error.response?.data?.message || error.message);
+        setError(error.response?.data?.message || "Error fetching order count");
+      }
+    };
+
+    if (seller?.id) {
+      fetchSellerOrderCount();
+    }
+  }, [seller]);
   return (
     <div className="flex flex-col">
       {/* Dashboard Header */}
@@ -105,7 +126,7 @@ const SellerDashboard = () => {
             >
               <FaShoppingCart className="text-green-500 text-5xl mb-2" />
               <h4 className="text-gray-700 text-lg font-semibold">Total Orders</h4>
-              <p className="text-2xl font-bold text-green-600">{stats.totalOrders}</p>
+              <p className="text-2xl font-bold text-green-600">{orderCount}</p>
             </motion.div>
 
             {/* Orders Delivered Card */}

@@ -29,7 +29,8 @@ export default function ProductForm() {
     const calculatedPrice = mrp - (mrp * discount) / 100;
     setValue("price", calculatedPrice.toFixed(2));
   }, [mrp, discount, setValue]);
-
+ 
+  
   const handleImageUpload = (e) => {
     const files = Array.from(e.target.files);
   
@@ -115,8 +116,21 @@ export default function ProductForm() {
         <input {...register("discount", { valueAsNumber: true })} type="number" className="w-full p-2 border rounded-md" />
 
         {/* Auto-calculated Price */}
-        <label className="block font-medium">Final Price (₹)</label>
-        <input {...register("price")} type="number" className="w-full p-2 border rounded-md bg-gray-100" readOnly />
+        {/* <label className="block font-medium">Final Price (₹) > 1000 (2%) increases for localestartup</label>
+        <input {...register("price")} type="number" className="w-full p-2 border rounded-md bg-gray-100" readOnly /> */}
+
+<div className="mb-4">
+  <label className="block text-gray-700 font-medium mb-2">
+    Final Price (₹) 
+  </label>
+  
+  <input
+    {...register("price")}
+    type="number"
+    className="w-full p-2 border rounded-md bg-gray-100 cursor-not-allowed"
+    readOnly
+  />
+</div>
 
         {/* Brand */}
         <label className="block font-medium">Brand</label>

@@ -14,6 +14,7 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
   const [productCount, setProductCount] = useState(0);
   const [userCount, setUserCount] = useState(0);
+  const [orderCount , setOrderCount]= useState(0);
 
   useEffect(() => {
     const sessionData = JSON.parse(localStorage.getItem("adminUser"));
@@ -60,6 +61,7 @@ const AdminDashboard = () => {
     fetchUserCount();
   }, []);
 
+
   useEffect(() => {
     const fetchProductCount = async () => {
       try {
@@ -73,6 +75,19 @@ const AdminDashboard = () => {
     fetchProductCount();
   }, [navigate]);
 
+  useEffect(() => {
+    // Fetch order count
+    const fetchOrderCount = async () => {
+      try {
+        const res = await axios.get(`${BASE_URL}/admin/orders/count`);
+        setOrderCount(res.data.orderCount);  // Set the order count
+      } catch (error) {
+        console.error("Error fetching order count:", error);
+      }
+    };
+    
+    fetchOrderCount();
+  }, []);
   return (
     <div className="flex flex-col items-center justify-center ">
       {status === "loading" ? (
@@ -80,11 +95,11 @@ const AdminDashboard = () => {
       ) : (
         <div className="w-full max-w-6xl p-6">
           <h1 className="text-3xl font-bold text-gray-700 mb-6 text-center">Dashboard Overview</h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 items-center justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center justify-center">
             <StatCard title="Total Users" value={userCount} icon={<FaUsers className="text-blue-500" />} />
             <StatCard title="Total Sellers" value={sellerCount} icon={<FaStore className="text-green-500" />} />
-            <StatCard title="Orders" value="0" icon={<FaShoppingCart className="text-orange-500" />} />
-            <StatCard title="Revenue" value="₹0" icon={<FaRupeeSign className="text-purple-500" />} />
+            <StatCard title="Orders" value={orderCount} icon={<FaShoppingCart className="text-orange-500" />} />
+            {/* <StatCard title="Revenue" value="₹0" icon={<FaRupeeSign className="text-purple-500" />} /> */}
             <StatCard title="Products" value={productCount} icon={<FaBoxOpen className="text-yellow-500" />} />
           </div>
         </div>

@@ -153,44 +153,15 @@ const LocalEStartup = () => {
         )}
       </nav> */}
 
-<nav className="w-full px-8 py-2 fixed top-0 left-0 z-50 flex justify-between items-center backdrop-blur-lg">
-      {/* Logo */}
-      <div className="flex items-center">
-        <img className="h-14 w-16" src={Logo} alt="Logo" />
-        <span className="ml-3 text-2xl md:text-4xl font-bold text-yellow-400">LocalEStartup</span>
-      </div>
+      <nav className="w-full px-8 py-2 fixed top-0 left-0 z-50 flex justify-between items-center backdrop-blur-lg">
+        {/* Logo */}
+        <div className="flex items-center">
+          <img className="h-14 w-16" src={Logo} alt="Logo" />
+          <span className="ml-3 text-2xl md:text-4xl font-bold text-yellow-400">LocalEStartup</span>
+        </div>
 
-      {/* Desktop Menu */}
-      <div className="hidden md:flex space-x-8">
-        {[
-          { label: "Home", id: "home" },
-          { label: "About Us", id: "about" },
-          { label: "Services", id: "services" },
-          { label: "Contact", id: "contact" },
-        ].map(({ label, id }, index) => (
-          <button
-            key={index}
-            onClick={() => handleScroll(id)}
-            className="relative text-lg font-medium transition duration-300 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-400 hover:text-white"
-          >
-            {label}
-          </button>
-        ))}
-      </div>
-
-      {/* Mobile Menu Button */}
-      <button className="md:hidden text-gray-900" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? <X size={28} /> : <Menu size={28} />}
-      </button>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-center py-4 space-y-4 md:hidden"
-        >
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-8">
           {[
             { label: "Home", id: "home" },
             { label: "About Us", id: "about" },
@@ -200,14 +171,43 @@ const LocalEStartup = () => {
             <button
               key={index}
               onClick={() => handleScroll(id)}
-              className="text-lg font-medium text-gray-900 px-4 py-2 rounded-lg hover:bg-orange-400 hover:text-white transition duration-300"
+              className="relative text-lg font-medium transition duration-300 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-400 hover:text-white"
             >
               {label}
             </button>
           ))}
-        </motion.div>
-      )}
-    </nav>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button className="md:hidden text-gray-900" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-center py-4 space-y-4 md:hidden"
+          >
+            {[
+              { label: "Home", id: "home" },
+              { label: "About Us", id: "about" },
+              { label: "Services", id: "services" },
+              { label: "Contact", id: "contact" },
+            ].map(({ label, id }, index) => (
+              <button
+                key={index}
+                onClick={() => handleScroll(id)}
+                className="text-lg font-medium text-gray-900 px-4 py-2 rounded-lg hover:bg-orange-400 hover:text-white transition duration-300"
+              >
+                {label}
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </nav>
 
       <div className="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-32 bg-gradient-to-r from-white via-yellow-100 to-yellow-300 ">
 
@@ -253,7 +253,7 @@ const LocalEStartup = () => {
           </motion.p>
 
 
-{/* <motion.h1
+          {/* <motion.h1
   className="text-xl md:text-2xl font-semibold text-black flex items-center gap-4"
   initial={{ opacity: 0, y: -20 }}
   animate={{ opacity: 1, y: 0 }}
@@ -264,25 +264,25 @@ const LocalEStartup = () => {
   <Truck className="w-6 h-6 text-green-500" /> Deliver
   <TrendingUp className="w-6 h-6 text-red-500" /> Grow
 </motion.h1> */}
-<motion.h1
-  className="text-lg xs:text-xl md:text-2xl font-semibold text-black flex flex-wrap justify-center md:justify-start gap-3 xs:gap-4"
-  initial={{ opacity: 0, y: -20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
->
-  <span className="flex items-center gap-2">
-    <ShoppingBag className="w-5 h-5 xs:w-6 xs:h-6 text-yellow-500" /> Shop
-  </span>
-  <span className="flex items-center gap-2">
-    <Briefcase className="w-5 h-5 xs:w-6 xs:h-6 text-blue-500" /> Sell
-  </span>
-  <span className="flex items-center gap-2">
-    <Truck className="w-5 h-5 xs:w-6 xs:h-6 text-green-500" /> Deliver
-  </span>
-  <span className="flex items-center gap-2">
-    <TrendingUp className="w-5 h-5 xs:w-6 xs:h-6 text-red-500" /> Grow
-  </span>
-</motion.h1>
+          <motion.h1
+            className="text-lg xs:text-xl md:text-2xl font-semibold text-black flex flex-wrap justify-center md:justify-start gap-3 xs:gap-4"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <span className="flex items-center gap-2">
+              <ShoppingBag className="w-5 h-5 xs:w-6 xs:h-6 text-yellow-500" /> Shop
+            </span>
+            <span className="flex items-center gap-2">
+              <Briefcase className="w-5 h-5 xs:w-6 xs:h-6 text-blue-500" /> Sell
+            </span>
+            <span className="flex items-center gap-2">
+              <Truck className="w-5 h-5 xs:w-6 xs:h-6 text-green-500" /> Deliver
+            </span>
+            <span className="flex items-center gap-2">
+              <TrendingUp className="w-5 h-5 xs:w-6 xs:h-6 text-red-500" /> Grow
+            </span>
+          </motion.h1>
 
 
 
@@ -344,30 +344,30 @@ const LocalEStartup = () => {
         </div>
       </section>
 
- {/* Statistics Section */}
-<section className="py-16 text-center bg-blue-50">
-  <h2 className="text-3xl sm:text-4xl font-bold text-yellow-400">
-    Our Growing Community
-  </h2>
-  
-  <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 px-6 sm:px-16">
-    {[
-      { label: "Users", count: stats?.users ?? 0 },
-      { label: "Sellers", count: stats?.sellers ?? 0 },
-      { label: "Products", count: stats?.products ?? 0 },
-      { label: "Orders Delivered", count: stats?.orders ?? 0 }
-    ].map((stat, index) => (
-      <motion.div
-        key={index}
-        whileHover={{ scale: 1.1 }}
-        className="bg-white shadow-lg p-6 rounded-lg flex flex-col items-center"
-      >
-        <h3 className="text-2xl font-bold">{stat.count.toLocaleString()}+</h3>
-        <p className="text-gray-600">{stat.label}</p>
-      </motion.div>
-    ))}
-  </div>
-</section>
+      {/* Statistics Section */}
+      <section className="py-16 text-center bg-blue-50">
+        <h2 className="text-3xl sm:text-4xl font-bold text-yellow-400">
+          Our Growing Community
+        </h2>
+
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 px-6 sm:px-16">
+          {[
+            { label: "Users", count: stats?.users ?? 0 },
+            { label: "Sellers", count: stats?.sellers ?? 0 },
+            { label: "Products", count: stats?.products ?? 0 },
+            { label: "Orders Delivered", count: stats?.orders ?? 0 }
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.1 }}
+              className="bg-white shadow-lg p-6 rounded-lg flex flex-col items-center"
+            >
+              <h3 className="text-2xl font-bold">{stat.count.toLocaleString()}+</h3>
+              <p className="text-gray-600">{stat.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
 
 
@@ -404,10 +404,13 @@ const LocalEStartup = () => {
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
-                  className="mt-6 inline-block bg-yellow-400 text-white px-6 py-3 rounded-lg shadow-mdtransition"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-block bg-yellow-400 text-white px-6 py-3 rounded-lg shadow-md transition"
                 >
                   Start Selling
                 </motion.a>
+
               </div>
             </motion.div>
 

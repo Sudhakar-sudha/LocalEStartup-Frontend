@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const DeliveryBoyLogin = () => {
   const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ const DeliveryBoyLogin = () => {
   
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3000/api/deliveryboys/login", {
+      const response = await axios.post(`${BASE_URL}/api/deliveryboys/login`, {
         email,
         dob, // Ensure this is in "YYYY-MM-DD" format
       });

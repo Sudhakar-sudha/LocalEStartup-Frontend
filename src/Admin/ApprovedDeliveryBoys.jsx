@@ -4,23 +4,24 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const DeliveryStatus = () => {
   const [deliveryBoys, setDeliveryBoys] = useState([]);
   const statusOptions = ["Picked Up", "Going to Delivery", "Delivered", "Completed"];
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/deliveryboys/")
+    axios.get(`${BASE_URL}/api/deliveryboys/`)
       .then(response => {
         console.log("API Response:", response.data); // Debugging
         setDeliveryBoys(Array.isArray(response.data.data) ? response.data.data : []);
-      })
+      })  
       .catch(error => console.error("Error fetching delivery boys", error));
   }, []);
 
   const updateDeliveryStatus = async (id, newStatus) => {
     try {
-      await axios.put(`http://localhost:3000/api/deliveryboys/status/${id}`, { status: newStatus });
+      await axios.put(`${BASE_URL}/api/deliveryboys/status/${id}`, { status: newStatus });
       toast.success(`Status updated to ${newStatus}`);
       setDeliveryBoys(prev => prev.map(boy => (boy._id === id ? { ...boy, status: newStatus } : boy)));
     } catch (error) {

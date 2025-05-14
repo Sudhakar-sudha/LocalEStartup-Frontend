@@ -157,6 +157,7 @@
 import React from 'react'
 import AllDeliveryBoys from './AllDeliveryBoys';
 import ApprovalDeliveryboy from './ApprovalDeliveryboy';
+import ApprovedDeliveryBoys from './ApprovedDeliveryBoys'
 const Deliveryboy = () => {
   return (
     <div>
@@ -165,6 +166,7 @@ const Deliveryboy = () => {
       </div>
     
       <ApprovalDeliveryboy/>
+      {/* <ApprovedDeliveryBoys/> */}
     </div>
   )
 }
