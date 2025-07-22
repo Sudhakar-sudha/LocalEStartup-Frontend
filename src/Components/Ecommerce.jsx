@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import Logo from "/Logoles.png";
+import Logo from "/Logo.png";
 import "../App.css";
 import axios from "axios";
 import sellerImage from "/seller.png";
 import userAppImage from "/user.jpg";
 import deliveryAppImage from "/delivery.jpg";
-import image from "/TeamLogo.png";
+import image from "/image.png";
 import { FaStore, FaShoppingCart, FaTruck } from "react-icons/fa";
 import { FaPhoneAlt, FaEnvelope, FaCommentDots, FaMapMarkerAlt } from "react-icons/fa";
-
+import MetaData from './MetaData'
 import { ShoppingBag, Briefcase, Truck, TrendingUp } from "lucide-react";
 // Animation Variants
 const fadeIn = {
@@ -110,6 +110,11 @@ const LocalEStartup = () => {
   return (
 
     <div id="home">
+           <MetaData
+        title="Online Shopping site in Sivakasi: Shop Online for Mobiles, Books, Watches, Shoes and More - LocalEStartup.in"
+        description=" Online Shopping India - Buy mobiles, laptops, cameras, books, watches, apparel, shoes and e-Gift Cards. Free Shipping &amp; Cash on Delivery Available."
+        keywords=" Online Shopping, online shopping india, india shopping online, amazon india, amazn, buy online, buy mobiles online, buy books online, buy movie dvd's online, kindle, kindle fire hd, kindle e-readers, ebooks, computers, laptop, toys, trimmers, watches, fashion jewellery, home, kitchen, small appliances, beauty, Sports, Fitness &amp; Outdoors"
+      />
       <nav className="w-full px-8 py-2 fixed top-0 left-0 z-50 flex justify-between items-center backdrop-blur-lg">
         {/* Logo */}
         <div className="flex items-center">
@@ -210,6 +215,17 @@ const LocalEStartup = () => {
           </motion.p>
 
 
+          {/* <motion.h1
+  className="text-xl md:text-2xl font-semibold text-black flex items-center gap-4"
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+>
+  <ShoppingBag className="w-6 h-6 text-yellow-500" /> Shop
+  <Briefcase className="w-6 h-6 text-blue-500" /> Sell
+  <Truck className="w-6 h-6 text-green-500" /> Deliver
+  <TrendingUp className="w-6 h-6 text-red-500" /> Grow
+</motion.h1> */}
           <motion.h1
             className="text-lg xs:text-xl md:text-2xl font-semibold text-black flex flex-wrap justify-center md:justify-start gap-3 xs:gap-4"
             initial={{ opacity: 0, y: -20 }}
@@ -346,7 +362,7 @@ const LocalEStartup = () => {
                   an easy-to-use dashboard with complete order management and analytics.
                 </p>
                 <motion.a
-                  href="/ecommerce"
+                  href="/selling"
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
@@ -380,7 +396,7 @@ const LocalEStartup = () => {
 
                 <motion.a
                  
-                  href="/ecommerce"
+                  href="https://drive.google.com/file/d/1tgV4505aUkym3VMQYV9h3-G4RtjVNwtT/view?usp=sharing"
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
@@ -412,7 +428,7 @@ const LocalEStartup = () => {
                 </p>
 
                 <motion.a
-                  href="/ecommerce"
+                  href=" https://drive.google.com/file/d/1rnszfJ67HvBoIUm9jrLLREhkWJj3_WXC/view?usp=sharing"
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
