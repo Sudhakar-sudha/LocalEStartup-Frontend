@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import Logo from "/Logoles.png";
+import Logo from "/OriginalLogo.png";
 import "../App.css";
 import axios from "axios";
 import sellerImage from "/seller.png";
 import userAppImage from "/user.jpg";
 import deliveryAppImage from "/delivery.jpg";
-import image from "/TeamLogo.png";
+import image from "/TeamLogo1.png";
 import { FaStore, FaShoppingCart, FaTruck } from "react-icons/fa";
 import { FaPhoneAlt, FaEnvelope, FaCommentDots, FaMapMarkerAlt } from "react-icons/fa";
 
 import { ShoppingBag, Briefcase, Truck, TrendingUp } from "lucide-react";
+import ParticlesBackground from "./ParticlesBackground";
 // Animation Variants
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -105,59 +106,114 @@ const LocalEStartup = () => {
   }, []);
 
 
+  const staticText = "Your one-stop destination for ";
+  const phrases = [
+    "Real-Time Projects",
+    "College Final Year Projects",
+    "Technical Guidance"
+  ];
+
+  const [currentPhrase, setCurrentPhrase] = useState("");
+  const [index, setIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = phrases[index];
+    const timeout = setTimeout(() => {
+      if (!deleting) {
+        // Typing letters
+        if (charIndex < current.length) {
+          setCurrentPhrase((prev) => prev + current[charIndex]);
+          setCharIndex((prev) => prev + 1);
+        } else {
+          // Pause before deleting
+          setDeleting(true);
+        }
+      } else {
+        // Deleting letters
+        if (charIndex > 0) {
+          setCurrentPhrase((prev) => prev.slice(0, -1));
+          setCharIndex((prev) => prev - 1);
+        } else {
+          // Move to next phrase
+          setDeleting(false);
+          setIndex((prev) => (prev + 1) % phrases.length);
+        }
+      }
+    }, deleting ? 60 : 100); // speed: faster when deleting
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, deleting, index, phrases]);
 
 
   return (
 
     <div id="home">
-      <nav className="w-full px-8 py-2 fixed top-0 left-0 z-50 flex justify-between items-center backdrop-blur-lg">
+
+      <nav className="hidden [@media(min-width:1310px)]:flex w-full px-8 py-0 fixed top-0 left-0 z-50 justify-between items-center  bg-white ">
         {/* Logo */}
         <div className="flex items-center">
-          <img className="h-14 w-16" src={Logo} alt="Logo" />
-          <span className="ml-3 text-2xl md:text-4xl font-bold text-yellow-400">LocalEStartup</span>
+          <img className="h-18 w-20 ml-24" src={Logo} alt="Logo" />
+          {/* <span className="ml-3 text-2xl md:text-4xl font-bold text-[#1d86ff]">LocalEStartup</span> */}
         </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-8">
+        {/* Desktop Menu (≥1440px) */}
+        <div className="space-x-8">
           {[
             { label: "Home", id: "home" },
             { label: "About Us", id: "about" },
             { label: "Services", id: "services" },
+            { label: "Projects", id: "Projects" },
+            { label: "Training & Guidance", id: "TrainingandGuidance" },
+            { label: "Join Freelancers", id: "Freelancers" },
             { label: "Contact", id: "contact" },
           ].map(({ label, id }, index) => (
             <button
               key={index}
               onClick={() => handleScroll(id)}
-              className="relative text-lg font-medium transition duration-300 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-400 hover:text-white"
+              className="relative text-lg font-medium transition duration-300 text-sky-500 px-4 py-2 rounded-lg hover:bg-sky-400 hover:text-white"
             >
               {label}
             </button>
           ))}
         </div>
+      </nav>
 
-        {/* Mobile Menu Button */}
-        <button className="md:hidden text-gray-900" onClick={() => setIsOpen(!isOpen)}>
+      {/* Mobile Navbar (below 1440px) */}
+      <nav className="flex [@media(min-width:1310px)]:hidden w-full px-6 py-2 fixed top-0 left-0 z-50 justify-between items-center bg-white shadow-md">
+        {/* Logo */}
+        <div className="flex items-center">
+          <img className="h-12 w-14 [@media(min-width:1024px)]:ml-24 ml-5 " src={Logo} alt="Logo" />
+          {/* <span className="ml-2 text-xl font-bold text-[#8fb6e3]">LocalEStartup</span> */}
+        </div>
+
+        {/* Menu Toggle */}
+        <button className="text-gray-900" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
 
-        {/* Mobile Menu */}
+        {/* Mobile Dropdown */}
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-center py-4 space-y-4 md:hidden"
+            className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-center py-4 space-y-4"
           >
             {[
               { label: "Home", id: "home" },
               { label: "About Us", id: "about" },
               { label: "Services", id: "services" },
+              { label: "Projects", id: "Projects" },
+              { label: "Training & Guidance", id: "TrainingandGuidance" },
+              { label: "Join Freelancer", id: "Freelancer" },
               { label: "Contact", id: "contact" },
             ].map(({ label, id }, index) => (
               <button
                 key={index}
                 onClick={() => handleScroll(id)}
-                className="text-lg font-medium text-gray-900 px-4 py-2 rounded-lg hover:bg-orange-400 hover:text-white transition duration-300"
+                className="text-lg font-medium text-sky-500 px-4 py-2 rounded-lg hover:bg-sky-400 hover:text-white transition duration-300"
               >
                 {label}
               </button>
@@ -166,8 +222,11 @@ const LocalEStartup = () => {
         )}
       </nav>
 
-      <div className="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-32 bg-gradient-to-r from-white via-yellow-100 to-yellow-300 ">
 
+      <div className="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-32">
+
+        {/* Particles Background */}
+        <ParticlesBackground />
         {/* Left Side - Text Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -175,18 +234,9 @@ const LocalEStartup = () => {
           transition={{ duration: 1 }}
           className="w-full md:w-1/2 text-center md:text-left space-y-4 md:space-y-6 md:mt-24 mt-24"
         >
-          <motion.h1
-            className="text-2xl md:text-4xl font-bold text-gray-900 leading-tight"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            Boost Your Local Business with
-          </motion.h1>
-
           {/* Highlighted Animated Text */}
           <motion.h1
-            className="text-4xl md:text-5xl font-semibold text-yellow-500"
+            className="text-4xl md:text-5xl font-bold text-sky-500"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -195,51 +245,62 @@ const LocalEStartup = () => {
           </motion.h1>
 
 
+          {/* Main Heading */}
+          <motion.h1
+            className="text-3xl md:text-3xl  text-black"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            Empowering Students & Businesses with
+            <span className="text-yellow-500"> Innovative Projects </span>
+          </motion.h1>
+
+          {/* Sub-Heading */}
+          <motion.h2
+            className="mt-4 text-lg md:text-xl text-gray-700 max-w-3xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            {staticText}
+            <span className="text-sky-500">{currentPhrase}</span>
+            <motion.span
+              initial={{ opacity: 1 }}
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ repeat: Infinity, duration: 0.8 }}
+              className="ml-1"
+            >
+              |
+            </motion.span>
+          </motion.h2>
+
+          {/* Intro Paragraph */}
           <motion.p
-            className="text-base md:text-lg text-black leading-relaxed mt-4 max-w-screen-md mx-auto 
-             text-justify  "
+            className="mt-6 text-base md:text-lg text-gray-600 max-w-2xl leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            <span className="ml-10"></span>LocalEStartup helps businesses grow by connecting <span className="font-medium text-blue-700">sellers</span> with more customers.
-            <span className="font-medium text-blue-700"> Sellers</span> can showcase their products to a wider audience and boost their sales.
-            <span className="font-medium text-blue-700"> Buyers</span> can easily find and order unique local products.
-            Our <span className="font-medium text-blue-700">delivery partners</span> ensure fast and reliable service,
-            making shopping easy and stress-free for everyone!
+            We help
+            <span className="font-medium text-yellow-500"> students</span>,
+            <span className="font-medium text-blue-500">  businesses</span>, and
+            <span className="font-medium text-green-500"> freelancers</span> bring their ideas to life.
+            Whether you're a <span className="font-semibold">college student searching for your final year project</span>,
+            a <span className="font-semibold">business looking for customized software solutions</span>,
+            or someone who needs <span className="font-semibold">training & expert mentorship</span>,
+            we’ve got you covered!
           </motion.p>
-
-
-          <motion.h1
-            className="text-lg xs:text-xl md:text-2xl font-semibold text-black flex flex-wrap justify-center md:justify-start gap-3 xs:gap-4"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <span className="flex items-center gap-2">
-              <ShoppingBag className="w-5 h-5 xs:w-6 xs:h-6 text-yellow-500" /> Shop
-            </span>
-            <span className="flex items-center gap-2">
-              <Briefcase className="w-5 h-5 xs:w-6 xs:h-6 text-blue-500" /> Sell
-            </span>
-            <span className="flex items-center gap-2">
-              <Truck className="w-5 h-5 xs:w-6 xs:h-6 text-green-500" /> Deliver
-            </span>
-            <span className="flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 xs:w-6 xs:h-6 text-red-500" /> Grow
-            </span>
-          </motion.h1>
-
-
 
           <motion.button
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="mt-4 px-5 py-3 bg-yellow-500 text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-yellow-600 transition"
-            onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 bg-sky-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition"
           >
             Get Started
           </motion.button>
+
+
         </motion.div>
 
         {/* Right Side - Image */}
@@ -263,8 +324,15 @@ const LocalEStartup = () => {
       <section id="about" className="pt-36 pb-16">
         <div className="container mx-auto px-6 md:px-12 lg:px-20 flex flex-col md:flex-row items-center md:items-start">
           <div className="w-full text-center md:hidden mb-6">
-            <h2 className="text-4xl font-bold text-yellow-400">About Us</h2>
+            <h2
+              className="relative inline-block text-4xl font-bold text-sky-500
+                   after:content-[''] after:block after:w-1/2 after:h-[3px] after:bg-white
+                   after:mt-1 after:mx-auto after:animate-underlineGrow">
+              About Us
+            </h2>
           </div>
+
+
           <div className="md:w-1/3 flex flex-col items-center md:items-start">
             <img
               src={Logo}
@@ -273,7 +341,12 @@ const LocalEStartup = () => {
             />
           </div>
           <div className="md:w-2/3 text-center md:text-left md:pl-12 mt-6 md:mt-0">
-            <h2 className="hidden md:block text-4xl font-bold text-yellow-400">About Us</h2>
+            <h2
+              className="relative inline-block text-4xl font-bold text-sky-500
+                   after:content-[''] after:block after:w-1/2 after:h-[3px] after:bg-white
+                   after:mt-1 after:mx-auto after:animate-underlineGrow">
+              About Us
+            </h2>
             <p className="mt-4 text-lg text-gray-700 text-justify">
               LocalEStartup was created on <strong>December 17, 2025</strong>, to help small businesses grow by connecting them with more customers online.
               Many local sellers struggle to reach people because they lack an online presence. Our platform gives them a simple way to showcase
@@ -379,7 +452,7 @@ const LocalEStartup = () => {
                 </p>
 
                 <motion.a
-                 
+
                   href="/ecommerce"
                   variants={buttonVariants}
                   whileHover="hover"

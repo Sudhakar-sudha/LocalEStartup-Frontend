@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Logo from "/Logo.png";
+import TitleLogo from "/TitleLogo.png";
 import "../App.css";
 import axios from "axios";
 import sellerImage from "/seller.png";
@@ -110,11 +111,14 @@ const LocalEStartup = () => {
   return (
 
     <div id="home">
-           <MetaData
+
+      <MetaData
         title="Online Shopping site in Sivakasi: Shop Online for Mobiles, Books, Watches, Shoes and More - LocalEStartup.in"
-        description=" Online Shopping India - Buy mobiles, laptops, cameras, books, watches, apparel, shoes and e-Gift Cards. Free Shipping &amp; Cash on Delivery Available."
-        keywords=" Online Shopping, online shopping india, india shopping online, amazon india, amazn, buy online, buy mobiles online, buy books online, buy movie dvd's online, kindle, kindle fire hd, kindle e-readers, ebooks, computers, laptop, toys, trimmers, watches, fashion jewellery, home, kitchen, small appliances, beauty, Sports, Fitness &amp; Outdoors"
+        description="Online Shopping India - Buy mobiles, laptops, cameras, books, watches, apparel, shoes and e-Gift Cards. Free Shipping & Cash on Delivery Available."
+        keywords="Online Shopping, online shopping india, india shopping online, amazon india, amazn, buy online, buy mobiles online, buy books online, buy movie dvd's online, kindle, kindle fire hd, kindle e-readers, ebooks, computers, laptop, toys, trimmers, watches, fashion jewellery, home, kitchen, small appliances, beauty, Sports, Fitness & Outdoors"
+        icon={TitleLogo}
       />
+
       <nav className="w-full px-8 py-2 fixed top-0 left-0 z-50 flex justify-between items-center backdrop-blur-lg">
         {/* Logo */}
         <div className="flex items-center">
@@ -395,7 +399,7 @@ const LocalEStartup = () => {
                 </p>
 
                 <motion.a
-                 
+
                   href="https://drive.google.com/file/d/1tgV4505aUkym3VMQYV9h3-G4RtjVNwtT/view?usp=sharing"
                   variants={buttonVariants}
                   whileHover="hover"
