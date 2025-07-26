@@ -340,9 +340,9 @@ const LocalEStartup = () => {
               className="w-[300vw] max-w-[200px] md:max-w-[250px] lg:max-w-[350px] "
             />
           </div>
-          <div className="md:w-2/3 text-center md:text-left md:pl-12 mt-6 md:mt-0">
+          <div className="md:w-2/3  text-center md:text-left md:pl-12 mt-6 md:mt-0">
             <h2
-              className="relative inline-block text-4xl font-bold text-sky-500
+              className="relative  hidden md:inline-block text-4xl font-bold text-sky-500
                    after:content-[''] after:block after:w-1/2 after:h-[3px] after:bg-white
                    after:mt-1 after:mx-auto after:animate-underlineGrow">
               About Us
