@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Logo from "/OriginalLogo.png";
+import AllTech from "/sudha.png";
 import "../App.css";
 import axios from "axios";
 import sellerImage from "/seller.png";
@@ -319,52 +320,60 @@ const LocalEStartup = () => {
 
       </div>
 
+{/* About Section */}
+<section id="about" className="pt-36 pb-16 bg-sky-50">
+  <div className="container mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:flex-row md:flex-col items-center md:items-center">
+    
+    {/* Mobile Heading */}
+    <div className="w-full text-center lg:hidden mb-6">
+      <h2
+        className="relative inline-block text-4xl font-bold text-sky-500
+          after:content-[''] after:block after:w-1/2 after:h-[3px] after:bg-white
+          after:mt-1 after:mx-auto after:animate-underlineGrow">
+        About Us
+      </h2>
+    </div>
 
-      {/* About Section */}
-      <section id="about" className="pt-36 pb-16">
-        <div className="container mx-auto px-6 md:px-12 lg:px-20 flex flex-col md:flex-row items-center md:items-start">
-          <div className="w-full text-center md:hidden mb-6">
-            <h2
-              className="relative inline-block text-4xl font-bold text-sky-500
-                   after:content-[''] after:block after:w-1/2 after:h-[3px] after:bg-white
-                   after:mt-1 after:mx-auto after:animate-underlineGrow">
-              About Us
-            </h2>
-          </div>
+    {/* Image Section */}
+    <div className="md:w-1/3 flex justify-center md:justify-start items-center">
+      <img
+        src={AllTech}
+        alt="Logo"
+        className=""
+      />
+    </div>
 
+    {/* Text Section */}
+    <div className="md:w-2/3 text-center md:text-left md:pl-12 mt-6 md:mt-0 flex flex-col justify-center">
+      <h2
+        className="relative md:hidden lg:inline-block text-4xl font-bold text-sky-500">
+        About Us
+      </h2>
+      <p className="mt-4 text-lg text-gray-700 text-justify">
+        Hi, I'm <strong>Sudhakar</strong> – a passionate freelancer and software developer who loves building
+        real-world solutions. My journey began on <strong>December 17, 2025</strong> while working on my
+        college project. From that day onwards, I discovered my interest in creating and learning through
+        hands-on projects.
+        <br /><br />
+        Currently, I work at a software company where I contribute to impactful projects and sharpen my
+        technical skills. At the same time, I continue freelancing to explore new technologies and deliver
+        value to businesses and individuals.
+        <br /><br />
+        Freelancing gives me the opportunity to work on diverse ideas, learn continuously, and build
+        innovative solutions tailored to client needs. Whether it's web development, software solutions,
+        or creating user-focused digital experiences – I love helping people bring their ideas to life.
+        <br /><br />
+        My mission is simple: <strong>learn, build, and grow – together with my clients</strong>. Every project
+        I take on is a chance to make an impact and help others achieve their goals while enhancing my
+        own expertise.
+      </p>
+    </div>
+  </div>
+</section>
 
-          <div className="md:w-1/3 flex flex-col items-center md:items-start">
-            <img
-              src={Logo}
-              alt="Logo"
-              className="w-[300vw] max-w-[200px] md:max-w-[250px] lg:max-w-[350px] "
-            />
-          </div>
-          <div className="md:w-2/3  text-center md:text-left md:pl-12 mt-6 md:mt-0">
-            <h2
-              className="relative  hidden md:inline-block text-4xl font-bold text-sky-500
-                   after:content-[''] after:block after:w-1/2 after:h-[3px] after:bg-white
-                   after:mt-1 after:mx-auto after:animate-underlineGrow">
-              About Us
-            </h2>
-            <p className="mt-4 text-lg text-gray-700 text-justify">
-              LocalEStartup was created on <strong>December 17, 2025</strong>, to help small businesses grow by connecting them with more customers online.
-              Many local sellers struggle to reach people because they lack an online presence. Our platform gives them a simple way to showcase
-              their products and expand their business.
-              <br /><br />
-              By supporting small businesses, we help create jobs and boost the local economy. Customers also benefit by getting unique,
-              high-quality products directly from trusted sellers at fair prices.
-              <br /><br />
-              We use modern technology to make buying and selling easy.
-              Our goal is to build a community where small businesses can compete in the digital world and grow without limits.
-              LocalEStartup is more than a marketplace – it’s a step toward a better future for local businesses.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* Statistics Section */}
-      <section className="py-16 text-center bg-blue-50">
+      <section className="py-16 text-center ">
         <h2 className="text-3xl sm:text-4xl font-bold text-yellow-400">
           Our Growing Community
         </h2>
@@ -390,7 +399,7 @@ const LocalEStartup = () => {
 
 
 
-      <section id="services" className="">
+      <section id="services" className="bg-sky-50">
 
         <div className="px-6 md:px-16 lg:px-32 py-16">
           <h1 className="text-4xl font-bold text-center text-yellow-400 mb-12">
