@@ -321,7 +321,7 @@ const LocalEStartup = () => {
       </div>
 
 {/* About Section */}
-<section id="about" className="pt-36 pb-16 bg-sky-50">
+<section id="about" className="pt-28 pb-28 bg-sky-50">
   <div className="container mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:flex-row md:flex-col items-center md:items-center">
     
     {/* Mobile Heading */}
