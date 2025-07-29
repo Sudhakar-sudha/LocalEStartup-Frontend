@@ -23,6 +23,14 @@ const Navbar = ({ handleScroll }) => {
         {/* Logo */}
         <div className="flex items-center">
           <img className="h-18 w-20 ml-24" src={Logo} alt="Logo" />
+          <motion.h1
+                   className="text-xl ml-3 md:text-2xl font-bold text-sky-500"
+                   initial={{ opacity: 0, scale: 0.8 }}
+                   animate={{ opacity: 1, scale: 1 }}
+                   transition={{ duration: 0.8, delay: 0.3 }}
+                 >
+                   Freelancer
+                 </motion.h1>
         </div>
 
         {/* Menu */}
@@ -48,6 +56,14 @@ const Navbar = ({ handleScroll }) => {
             src={Logo}
             alt="Logo"
           />
+           <motion.h1
+                   className="text-xl ml-3 md:text-2xl font-bold text-sky-500"
+                   initial={{ opacity: 0, scale: 0.8 }}
+                   animate={{ opacity: 1, scale: 1 }}
+                   transition={{ duration: 0.8, delay: 0.3 }}
+                 >
+                   Freelancer
+                 </motion.h1>
         </div>
 
         {/* Menu Toggle */}

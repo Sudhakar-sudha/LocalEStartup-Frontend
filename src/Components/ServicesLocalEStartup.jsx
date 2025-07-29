@@ -64,7 +64,7 @@ const Services = () => {
                 <div>
                   <CardItem
                     translateZ={50}
-                    className="text-xl font-bold text-neutral-600 dark:text-white"
+                    className="text-xl font-bold text-sky-600 dark:text-white"
                   >
                     {service.title}
                   </CardItem>
@@ -90,7 +90,7 @@ const Services = () => {
                     as="a"
                     href={service.link}
                     target="_blank"
-                    className="px-6 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-sm font-semibold transition-transform hover:scale-105"
+                    className="px-6 py-2 rounded-xl bg-sky-600 dark:bg-white dark:text-black text-white text-sm font-semibold transition-transform hover:scale-105"
                   >
                     Try now
                   </CardItem>

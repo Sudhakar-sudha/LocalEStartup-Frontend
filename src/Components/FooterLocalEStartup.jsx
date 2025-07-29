@@ -27,7 +27,7 @@ const FooterLocalEStartup = () => {
   return (
      <section id="contact" className="">
         <div className="px-8 md:px-14 lg:px-30 pt-14 pb-4   bg-gray-100">
-          <h2 className="text-3xl font-bold text-yellow-400 text-center">Contact Us</h2>
+          <h2 className="text-3xl font-bold text-sky-400 text-center">Contact Us</h2>
           <p className="text-gray-600 text-center mt-4">
             Need help? Get in touch with our support team for assistance.
           </p>

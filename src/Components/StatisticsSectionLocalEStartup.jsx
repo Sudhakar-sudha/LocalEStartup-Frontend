@@ -6,42 +6,17 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const StatisticsSectionLocalEStartup = () => {
   const [stats, setStats] = useState({
-    users: 0,
-    sellers: 0,
-    products: 0,
-    orders: 0,
+    Product: '1',
+    liveProjects: '1',
+    clgProjects: '3+',
+    availability: '27/7',
   });
 
-  // Fetch counts from API
-  useEffect(() => {
-    const fetchCounts = async () => {
-      try {
-        const [userRes, sellerRes, productRes, orderRes] = await Promise.all([
-          axios.get(`${BASE_URL}/user/count`),
-          axios.get(`${BASE_URL}/sellerdata/sellers/count`),
-          axios.get(`${BASE_URL}/product/product/count`),
-          axios.get(`${BASE_URL}/api/orders/count`),
-        ]);
-
-        setStats({
-          users: userRes.data.count || 0,
-          sellers: sellerRes.data.count || 0,
-          products: productRes.data.count || 0,
-          orders: orderRes.data.count || 0,
-        });
-      } catch (error) {
-        console.error("❌ Error fetching statistics:", error.response?.data || error.message);
-      }
-    };
-
-    fetchCounts();
-  }, []);
-
   const statsData = [
-    { label: "Users", count: stats.users },
-    { label: "Sellers", count: stats.sellers },
-    { label: "Products", count: stats.products },
-    { label: "Orders Delivered", count: stats.orders },
+    { label: "Product", count: stats.Product },
+    { label: "Live Projects", count: stats.liveProjects },
+    { label: "Clg Projects", count: stats.clgProjects },
+    { label: "Availability", count: stats.availability },
   ];
 
   return (
@@ -51,7 +26,7 @@ const StatisticsSectionLocalEStartup = () => {
     >
       <div className="py-16">
         <h2 className="text-3xl sm:text-4xl font-bold text-white">
-          Our Growing Community
+          Our Growing Achievements
         </h2>
 
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 px-6 sm:px-16">
@@ -61,7 +36,9 @@ const StatisticsSectionLocalEStartup = () => {
               whileHover={{ scale: 1.1 }}
               className="bg-white shadow-lg p-6 rounded-lg flex flex-col items-center"
             >
-              <h3 className="text-2xl font-bold">{stat.count.toLocaleString()}+</h3>
+              <h3 className="text-2xl font-bold">
+                {stat.count.toLocaleString()}
+              </h3>
               <p className="text-gray-600">{stat.label}</p>
             </motion.div>
           ))}

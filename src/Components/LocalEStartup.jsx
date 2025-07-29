@@ -9,9 +9,11 @@ import FooterLocalEStartup from "./FooterLocalEStartup";
 import ProjectsLocalEStartup from "./ProjectsLocalEStartup";
 import Navbar from "./NavbarLocalEStartup";
 import StatisticsSectionLocalEStartup from "./StatisticsSectionLocalEStartup";
+import TrainingGuidanceCard from "./TrainingandGuidance";
+import JoinFreelancerComponent from "./Freelancer";
 
 const LocalEStartup = () => {
- 
+
   const handleScroll = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -169,12 +171,19 @@ const LocalEStartup = () => {
         <ServicesLocalEStartup />
       </section>
 
-      <StatisticsSectionLocalEStartup/>
+      <StatisticsSectionLocalEStartup />
 
       <section id="Projects" className="bg-sky-50">
         <ProjectsLocalEStartup />
       </section>
 
+      <section id="TrainingandGuidance">
+        <TrainingGuidanceCard />
+      </section>
+
+       <section id="Freelancers">
+        <JoinFreelancerComponent />
+      </section>
 
       <section id="contact">
         <FooterLocalEStartup />
