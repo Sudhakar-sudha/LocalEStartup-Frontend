@@ -15,6 +15,7 @@ import { FaPhoneAlt, FaEnvelope, FaCommentDots, FaMapMarkerAlt } from "react-ico
 
 import { ShoppingBag, Briefcase, Truck, TrendingUp } from "lucide-react";
 import ParticlesBackground from "./ParticlesBackground";
+import Services from "./Services";
 // Animation Variants
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -319,7 +320,6 @@ const LocalEStartup = () => {
         </motion.div>
 
       </div>
-
 {/* About Section */}
 <section id="about" className="pt-28 pb-28 bg-sky-50">
   <div className="container mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:flex-row md:flex-col items-center md:items-center">
@@ -327,9 +327,7 @@ const LocalEStartup = () => {
     {/* Mobile Heading */}
     <div className="w-full text-center lg:hidden mb-6">
       <h2
-        className="relative inline-block text-4xl font-bold text-sky-500
-          after:content-[''] after:block after:w-1/2 after:h-[3px] after:bg-white
-          after:mt-1 after:mx-auto after:animate-underlineGrow">
+        className="relative inline-block text-4xl font-bold text-sky-500">
         About Us
       </h2>
     </div>
@@ -346,7 +344,7 @@ const LocalEStartup = () => {
     {/* Text Section */}
     <div className="md:w-2/3 text-center md:text-left md:pl-12 mt-6 md:mt-0 flex flex-col justify-center">
       <h2
-        className="relative md:hidden lg:inline-block text-4xl font-bold text-sky-500">
+        className="relative hidden md:hidden lg:inline-block text-4xl font-bold text-sky-500">
         About Us
       </h2>
       <p className="mt-4 text-lg text-gray-700 text-justify">
@@ -371,38 +369,48 @@ const LocalEStartup = () => {
   </div>
 </section>
 
+<section id="services">
+        <Services/>
+
+</section>
 
       {/* Statistics Section */}
-      <section className="py-16 text-center ">
-        <h2 className="text-3xl sm:text-4xl font-bold text-yellow-400">
-          Our Growing Community
-        </h2>
+<section
+  className="py-16 text-center bg-fixed bg-center bg-cover"
+  style={{ backgroundImage: "url('./parralax.jpg')" }}
+>
+  <div className=" py-16"> {/* Overlay for better text visibility */}
+    <h2 className="text-3xl sm:text-4xl font-bold text-white">
+      Our Growing Community
+    </h2>
 
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 px-6 sm:px-16">
-          {[
-            { label: "Users", count: stats?.users ?? 0 },
-            { label: "Sellers", count: stats?.sellers ?? 0 },
-            { label: "Products", count: stats?.products ?? 0 },
-            { label: "Orders Delivered", count: stats?.orders ?? 0 }
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.1 }}
-              className="bg-white shadow-lg p-6 rounded-lg flex flex-col items-center"
-            >
-              <h3 className="text-2xl font-bold">{stat.count.toLocaleString()}+</h3>
-              <p className="text-gray-600">{stat.label}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+    <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 px-6 sm:px-16">
+      {[
+        { label: "Users", count: stats?.users ?? 0 },
+        { label: "Sellers", count: stats?.sellers ?? 0 },
+        { label: "Products", count: stats?.products ?? 0 },
+        { label: "Orders Delivered", count: stats?.orders ?? 0 }
+      ].map((stat, index) => (
+        <motion.div
+          key={index}
+          whileHover={{ scale: 1.1 }}
+          className="bg-white shadow-lg p-6 rounded-lg flex flex-col items-center"
+        >
+          <h3 className="text-2xl font-bold">{stat.count.toLocaleString()}+</h3>
+          <p className="text-gray-600">{stat.label}</p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
 
 
-      <section id="services" className="bg-sky-50">
+
+      <section id="Projects" className="bg-sky-50">
 
         <div className="px-6 md:px-16 lg:px-32 py-16">
-          <h1 className="text-4xl font-bold text-center text-yellow-400 mb-12">
+          <h1 className="text-4xl font-bold text-center text-yellow-400 mt-14">
             Empower Your Business with LocalEStartup
           </h1>
           <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
