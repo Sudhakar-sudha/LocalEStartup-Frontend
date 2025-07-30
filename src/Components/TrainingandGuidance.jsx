@@ -26,7 +26,7 @@ const TrainingGuidanceLayout = () => {
     "PHP",
   ];
 
-  const companies = ["Zoho", "HCL", "Dellotie", "Small-Sized Companies"];
+  const companies = ["Zoho", "HCL", "Deloitte ", "Small-Sized Companies"];
 
   const variants = {
     hidden: { opacity: 0, y: 30 },
