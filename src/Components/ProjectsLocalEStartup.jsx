@@ -10,7 +10,7 @@ const projects = [
   {
     title: "Ecommerce Platform",
     type: "Product",
-    image: LocalEStartup,
+    image: "https://res.cloudinary.com/dlfan4caj/image/upload/v1753888043/LocalEStartup_tu7s0f.png",
     description:
       "LocalEStartup is an all-in-one platform where sellers can manage products and orders, customers can shop from trusted local stores with secure payments and fast delivery.",
     demoLink: "https://localestartup.vercel.app/ecommerce",
@@ -19,7 +19,7 @@ const projects = [
   {
     title: "JSS Crackers Website",
     type: "Clg Project",
-    image: Crackers,
+    image: "https://res.cloudinary.com/dlfan4caj/image/upload/v1753888090/Crackers_j4pimy.png",
     description:
       "A Crackers Website built using HTML, CSS, and JS that allows users to browse, select, and purchase various firecrackers online with a responsive design.",
     demoLink: "http://jsscrackers.infinityfreeapp.com",
@@ -28,7 +28,7 @@ const projects = [
   {
     title: "Tancet Quiz Website",
     type: "Clg Project",
-    image: TancetQuiz,
+    image: "https://res.cloudinary.com/dlfan4caj/image/upload/v1753888019/TancetQuiz_ldccny.png",
     description:
       "A secure TANCET Quiz platform with instant scoring, winner display, and anti-cheat features. Auto-submits answers with a running timer.",
     demoLink: "https://tancetquiz.vercel.app",
@@ -37,7 +37,7 @@ const projects = [
   {
     title: "VPrintTech Offset",
     type: "Live Project",
-    image: Vprinttech,
+    image: "https://res.cloudinary.com/dlfan4caj/image/upload/v1753888095/Vprinttech_upxxuq.png",
     description:
       "V Print Tech is a MERN stack-based printing offset website showcasing printing services, allowing customers to explore and connect easily.",
     demoLink: "https://vprinttech.netlify.app/",

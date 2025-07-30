@@ -60,18 +60,18 @@ const Services = () => {
             variants={fadeInUp}
           >
             <CardContainer className="inter-var">
-              <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-full rounded-xl p-6 border flex flex-col justify-between">
+              <CardBody className="bg-gray-50 relative group/card  border-black/[0.1] w-full h-full rounded-xl p-6 border flex flex-col justify-between">
                 <div>
                   <CardItem
                     translateZ={50}
-                    className="text-xl font-bold text-sky-600 dark:text-white"
+                    className="text-xl font-bold text-sky-600 "
                   >
                     {service.title}
                   </CardItem>
                   <CardItem
                     as="p"
                     translateZ={60}
-                    className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                    className="text-neutral-500 text-sm max-w-sm mt-2 "
                   >
                     {service.description}
                   </CardItem>
@@ -90,7 +90,7 @@ const Services = () => {
                     as="a"
                     href={service.link}
                     target="_blank"
-                    className="px-6 py-2 rounded-xl bg-sky-600 dark:bg-white dark:text-black text-white text-sm font-semibold transition-transform hover:scale-105"
+                    className="px-6 py-2 rounded-xl bg-sky-600  text-white text-sm font-semibold transition-transform hover:scale-105"
                   >
                     Try now
                   </CardItem>
