@@ -129,7 +129,7 @@ const TrainingGuidanceLayout = () => {
           {/* Call to Action */}
           <div className="flex justify-center mt-8">
             <motion.a
-              href=""
+              href="/trainingcontact"
               className="flex items-center gap-2 bg-sky-500 text-white px-8 py-3 rounded-lg font-semibold shadow-md text-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

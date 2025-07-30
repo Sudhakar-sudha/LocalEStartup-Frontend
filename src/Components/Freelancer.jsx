@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import axios from "axios";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const JoinFreelancerComponent = () => {
   const [showForm, setShowForm] = useState(false);
@@ -12,34 +14,28 @@ const JoinFreelancerComponent = () => {
     experience: "",
   });
 
+  // Fetch freelancers from backend
+  useEffect(() => {
+    axios.get(`${BASE_URL}/api/freelancers`)
+      .then((res) => setFreelancers(res.data))
+      .catch((err) => console.error("Error fetching freelancers", err));
+  }, []);
   // Handle input changes
   const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // Handle form submit
-  const handleSubmit = (e) => {
+  // Submit form
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      formData.name &&
-      formData.email &&
-      formData.phone &&
-      formData.skills
-    ) {
-      setFreelancers((prev) => [...prev, formData]);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        skills: "",
-        experience: "",
-      });
+    try {
+      const res = await axios.post(`${BASE_URL}/api/freelancers`, formData);
+      setFreelancers((prev) => [res.data, ...prev]); // Add to top
+      setFormData({ name: "", email: "", phone: "", skills: "", experience: "" });
       setShowForm(false);
-    } else {
-      alert("Please fill in all required fields.");
+    } catch (err) {
+      console.error("Error submitting freelancer", err);
+      alert("Failed to submit!");
     }
   };
 
@@ -156,22 +152,22 @@ const JoinFreelancerComponent = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {freelancers.map((f, index) => (
               <motion.div
-                key={index}
+                key={f._id || index}
                 className="bg-white rounded-lg shadow-lg p-5"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
               >
                 <h4 className="text-xl font-semibold text-sky-500">{f.name}</h4>
-                <p className="text-gray-600">{f.email}</p>
-                <p className="text-gray-600">{f.phone}</p>
+                {/* <p className="text-gray-600">{f.email}</p> */}
+                {/* <p className="text-gray-600">{f.phone}</p> */}
                 <p className="mt-2 text-gray-700">
                   <strong>Skills:</strong> {f.skills}
                 </p>
-                {f.experience && (
+                {/* {f.experience && (
                   <p className="mt-1 text-gray-700">
                     <strong>Experience:</strong> {f.experience}
                   </p>
-                )}
+                )} */}
               </motion.div>
             ))}
           </div>

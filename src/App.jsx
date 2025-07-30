@@ -30,12 +30,14 @@ import RejectedProducts from './Admin/RejectedProducts';
 import AdminProductApproval from './Admin/AdminProductApproval';
 import LocalEStartup from './Components/LocalEStartup';
 import Ecommerce from './Components/Ecommerce';
+import TrainingGuidance from './Components/TrainingForm';
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LocalEStartup />} />
         <Route path="/ecommerce" element={<Ecommerce />} />
+        <Route path="/trainingcontact" element={<TrainingGuidance />} />
         <Route path="/selling" element={<HomeSection />} />
         <Route path="/register" element={<Register />} />
         <Route path="/sellerlogin" element={<Login />} />
