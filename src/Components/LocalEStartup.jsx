@@ -11,7 +11,7 @@ import Navbar from "./NavbarLocalEStartup";
 import StatisticsSectionLocalEStartup from "./StatisticsSectionLocalEStartup";
 import TrainingGuidanceCard from "./TrainingandGuidance";
 import JoinFreelancerComponent from "./Freelancer";
-
+import { FaFire } from "react-icons/fa";
 const LocalEStartup = () => {
 
   const handleScroll = (id) => {
@@ -190,10 +190,25 @@ const LocalEStartup = () => {
       </section>
 
 
-      {/* Footer */}
-      <footer id="contact" className="py-4 text-center bg-gray-800 text-white">
-        <p>&copy; 2025 LocalEStartup. All Rights Reserved.</p>
-      </footer>
+{/* Footer */}
+<footer id="contact" className="py-4 text-center bg-gray-800 text-white">
+  <div className="space-y-1">
+    <p>&copy; 2025 LocalEStartup. All Rights Reserved.</p>
+    <p className="flex items-center justify-center gap-1">
+      Developed by{" "}
+      <a
+        href="https://sudhakar-portfolio.vercel.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-400 hover:text-white flex items-center gap-1"
+      >
+        <FaFire className="text-orange-500" /> Sudha
+      </a>
+    </p>
+  </div>
+</footer>
+
+
     </div>
   );
 };
