@@ -43,6 +43,15 @@ const projects = [
     demoLink: "https://vprinttech.netlify.app/",
     githubLink: "https://github.com/Sudhakar-sudha",
   },
+    {
+    title: "Sudhakar's Portfolio",
+    type: "Live Project",
+    image: "https://res.cloudinary.com/dlfan4caj/image/upload/v1753889144/SudhakarPortfolio_fazhwk.png",
+    description:
+      "Sudhakar's Portfolio is a personal website developed using modern web technologies to showcase his skills, projects, and professional journey",
+    demoLink: "https://sudhakar-portfolio.vercel.app/",
+    githubLink: "https://github.com/Sudhakar-sudha",
+  },
 ];
 
 const ProjectsLocalEStartup = () => {
