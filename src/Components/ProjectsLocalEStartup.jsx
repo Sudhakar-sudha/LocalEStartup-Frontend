@@ -52,7 +52,7 @@ const ProjectsLocalEStartup = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide();
-    }, 3000);
+    }, 5000);
     return () => clearInterval(timer);
   }, [current]);
 
