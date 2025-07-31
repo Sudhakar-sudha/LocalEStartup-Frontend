@@ -31,6 +31,7 @@ import AdminProductApproval from './Admin/AdminProductApproval';
 import LocalEStartup from './Components/LocalEStartup';
 import Ecommerce from './Components/Ecommerce';
 import TrainingGuidance from './Components/TrainingForm';
+import FreelancerAdmin from './Components/FreelancerAdmin'
 const App = () => {
   return (
     <Router>
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/" element={<LocalEStartup />} />
         <Route path="/ecommerce" element={<Ecommerce />} />
         <Route path="/trainingcontact" element={<TrainingGuidance />} />
+        <Route path="/localestartupAdmin" element={<FreelancerAdmin/>} />
         <Route path="/selling" element={<HomeSection />} />
         <Route path="/register" element={<Register />} />
         <Route path="/sellerlogin" element={<Login />} />

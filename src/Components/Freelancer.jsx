@@ -4,40 +4,50 @@ import axios from "axios";
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const JoinFreelancerComponent = () => {
-  const [showForm, setShowForm] = useState(false);
-  const [freelancers, setFreelancers] = useState([]);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    skills: "",
-    experience: "",
-  });
+const [showForm, setShowForm] = useState(false);
+const [freelancers, setFreelancers] = useState([]);
+const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  phone: "",
+  skills: "",
+  experience: "",
+});
 
-  // Fetch freelancers from backend
-  useEffect(() => {
-    axios.get(`${BASE_URL}/api/freelancers`)
-      .then((res) => setFreelancers(res.data))
-      .catch((err) => console.error("Error fetching freelancers", err));
-  }, []);
-  // Handle input changes
-  const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+// Fetch freelancers from backend
+useEffect(() => {
+  axios
+    .get(`${BASE_URL}/api/freelancers`)
+    .then((res) => setFreelancers(res.data))
+    .catch((err) => console.error("Error fetching freelancers", err));
+}, []);
 
-  // Submit form
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post(`${BASE_URL}/api/freelancers`, formData);
-      setFreelancers((prev) => [res.data, ...prev]); // Add to top
-      setFormData({ name: "", email: "", phone: "", skills: "", experience: "" });
-      setShowForm(false);
-    } catch (err) {
+// Handle input changes
+const handleChange = (e) => {
+  setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+};
+
+// Submit form with email validation
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await axios.post(`${BASE_URL}/api/freelancers`, formData);
+
+    // If success, add to list
+    setFreelancers((prev) => [res.data, ...prev]);
+    setFormData({ name: "", email: "", phone: "", skills: "", experience: "" });
+    setShowForm(false);
+  } catch (err) {
+    // If email already exists error (400)
+    if (err.response && err.response.status === 400) {
+      alert(err.response.data.message); // "Email already registered as a freelancer"
+    } else {
       console.error("Error submitting freelancer", err);
       alert("Failed to submit!");
     }
-  };
+  }
+};
+
 
   return (
     <section className="bg-sky-50 py-10">
