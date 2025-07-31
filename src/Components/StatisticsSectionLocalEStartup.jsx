@@ -9,7 +9,7 @@ const StatisticsSectionLocalEStartup = () => {
     Product: '1',
     liveProjects: '1',
     clgProjects: '3+',
-    availability: '27/7',
+    availability: '24/7',
   });
 
   const statsData = [
