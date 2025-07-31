@@ -10,21 +10,21 @@ const serviceData = [
     description:
       "We build responsive and modern websites using React, TailwindCSS, and Next.js to ensure fast performance and scalability.",
     image: "./webdevelopment.png",
-    link: "#",
+    link: "contact",
   },
   {
     title: "Mobile App Development",
     description:
       "We create high-performance Android & iOS apps using React Native and Expo for seamless user experiences.",
     image: "./appdevelopment.jpeg",
-    link: "#",
+    link: "contact",
   },
   {
     title: "UI/UX Design",
     description:
       "We craft intuitive and attractive UI/UX designs to enhance user interaction and engagement across your digital platforms.",
     image: "./ecommerce.jpeg",
-    link: "#",
+    link: "contact",
   },
 ];
 
@@ -87,13 +87,18 @@ const Services = () => {
                 <div className="flex justify-center mt-6">
                   <CardItem
                     translateZ={20}
-                    as="a"
-                    href={service.link}
-                    target="_blank"
-                    className="px-6 py-2 rounded-xl bg-sky-600  text-white text-sm font-semibold transition-transform hover:scale-105"
+                    as="button"
+                    onClick={() => {
+                      const target = document.getElementById(service.link); // service.link now holds the ID
+                      if (target) {
+                        target.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }
+                    }}
+                    className="px-6 py-2 rounded-xl bg-sky-600 text-white text-sm font-semibold transition-transform hover:scale-105"
                   >
                     Try now
                   </CardItem>
+
                 </div>
               </CardBody>
             </CardContainer>

@@ -50,7 +50,7 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <section className="bg-sky-50 py-10">
+    <section className=" py-10 pt-32">
       {/* Top Image with button */}
       <div className="relative max-w-6xl mx-auto rounded-xl overflow-hidden shadow-lg">
         <img
@@ -173,11 +173,11 @@ const handleSubmit = async (e) => {
                 <p className="mt-2 text-gray-700">
                   <strong>Skills:</strong> {f.skills}
                 </p>
-                {/* {f.experience && (
+                {f.experience && (
                   <p className="mt-1 text-gray-700">
                     <strong>Experience:</strong> {f.experience}
                   </p>
-                )} */}
+                )}
               </motion.div>
             ))}
           </div>

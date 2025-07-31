@@ -5,7 +5,7 @@ import AllTech from "/sudha.png";
 
 const AboutLocalEStartup = () => {
   return (
-   <section className="pt-28 pb-28 bg-sky-50">
+   <section className="pt-28 pb-28 bg-sky-50 ">
      <div className="container mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:flex-row md:flex-col items-center md:items-center">
        
        {/* Mobile Heading */}
@@ -26,7 +26,7 @@ const AboutLocalEStartup = () => {
        </div>
    
        {/* Text Section */}
-       <div className="md:w-2/3 text-center md:text-left md:pl-12 mt-6 md:mt-0 flex flex-col justify-center">
+       <div className="md:w-2/3 text-center md:text-left md:pl-12 mt-6 md:mt-0 mb-16 flex flex-col justify-center">
          <h2
            className="relative hidden md:hidden lg:inline-block text-4xl font-bold text-sky-500">
            About Us

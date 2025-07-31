@@ -39,7 +39,7 @@ const TrainingGuidanceLayout = () => {
 
   return (
     <section className="bg-gradient-to-br from-sky-400 via-white to-sky-400 py-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 pt-10">
         {/* Heading */}
         <motion.div
           className="text-center mb-14"

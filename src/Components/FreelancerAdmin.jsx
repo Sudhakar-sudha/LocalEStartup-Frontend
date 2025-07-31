@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-const BASE_URLS = import.meta.env.VITE_BASE_URL;
+import ParticlesBackground from "./ParticlesBackground";
 
+const BASE_URLS = import.meta.env.VITE_BASE_URL;
 const BASE_URL = `${BASE_URLS}/api`;
 
 const AdminDashboard = () => {
@@ -9,6 +10,7 @@ const AdminDashboard = () => {
   const [trainers, setTrainers] = useState([]);
   const [feedbacks, setFeedbacks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState("freelancers");
 
   // Fetch all data
   useEffect(() => {
@@ -49,113 +51,171 @@ const AdminDashboard = () => {
     }
   };
 
-  if (loading) return <p className="text-center">Loading...</p>;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center min-h-screen text-xl font-semibold">
+        Loading Dashboard...
+      </div>
+    );
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold text-center mb-6">Admin Dashboard</h1>
+    <div className="p-6  min-h-screen">
+        <ParticlesBackground/>
 
-      {/* FREELANCERS */}
-      <section className="mb-8 bg-white p-6 rounded-lg shadow">
-        <h2 className="text-xl font-bold mb-4">Freelancer Joiners</h2>
-        <table className="w-full border">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="p-2 border">Name</th>
-              <th className="p-2 border">Email</th>
-              <th className="p-2 border">Phone</th>
-              <th className="p-2 border">Skills</th>
-              <th className="p-2 border">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {freelancers.map((freelancer) => (
-              <tr key={freelancer._id} className="border">
-                <td className="p-2 border">{freelancer.name}</td>
-                <td className="p-2 border">{freelancer.email}</td>
-                <td className="p-2 border">{freelancer.phone}</td>
-                <td className="p-2 border">{freelancer.skills}</td>
-                <td className="p-2 border text-center">
-                  <button
-                    onClick={() => handleDelete("freelancers", freelancer._id)}
-                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                  >
-                    ❌ Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+      <h1 className="text-4xl font-extrabold text-center text-sky-500 mb-10">
+        Admin Dashboard
+      </h1>
 
-      {/* TRAINERS */}
-      <section className="mb-8 bg-white p-6 rounded-lg shadow">
-        <h2 className="text-xl font-bold mb-4">Trainer Form Data</h2>
-        <table className="w-full border">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="p-2 border">Name</th>
-              <th className="p-2 border">Email</th>
-              <th className="p-2 border">Phone</th>
-              <th className="p-2 border">Skills</th>
-              <th className="p-2 border">Education</th>
-              <th className="p-2 border">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {trainers.map((trainer) => (
-              <tr key={trainer._id} className="border">
-                <td className="p-2 border">{trainer.name}</td>
-                <td className="p-2 border">{trainer.email}</td>
-                <td className="p-2 border">{trainer.phone}</td>
-                <td className="p-2 border">{trainer.skills}</td>
-                <td className="p-2 border">{trainer.education}</td>
-                <td className="p-2 border text-center">
-                  <button
-                    onClick={() => handleDelete("trainers", trainer._id)}
-                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                  >
-                    ❌ Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+      {/* Navigation Tabs */}
+      <div className="flex justify-center space-x-4 mb-8">
+        {["freelancers", "trainers", "feedback"].map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`px-6 py-2 rounded-full text-lg font-medium transition ${
+              activeTab === tab
+                ? "bg-sky-500 text-white shadow-lg"
+                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+            }`}
+          >
+            {tab === "freelancers" && "Freelancers"}
+            {tab === "trainers" && "Trainers"}
+            {tab === "feedback" && "Feedback"}
+          </button>
+        ))}
+      </div>
 
-      {/* FEEDBACK */}
-      <section className="bg-white p-6 rounded-lg shadow">
-        <h2 className="text-xl font-bold mb-4">Feedback Form Data</h2>
-        <table className="w-full border">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="p-2 border">Name</th>
-              <th className="p-2 border">Email</th>
-              <th className="p-2 border">Message</th>
-              <th className="p-2 border">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {feedbacks.map((fb) => (
-              <tr key={fb._id} className="border">
-                <td className="p-2 border">{fb.name}</td>
-                <td className="p-2 border">{fb.email}</td>
-                <td className="p-2 border">{fb.message}</td>
-                <td className="p-2 border text-center">
-                  <button
-                    onClick={() => handleDelete("feedback", fb._id)}
-                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                  >
-                    ❌ Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+      {/* Data View */}
+      <div className="max-w-7xl mx-auto bg-white shadow-lg rounded-xl p-6">
+        {/* FREELANCERS */}
+        {activeTab === "freelancers" && (
+          <>
+            <h2 className="text-2xl font-bold text-sky-600 mb-4">
+              Freelancer Joiners ({freelancers.length})
+            </h2>
+            <div className="overflow-x-auto">
+              <table className="w-full border text-left">
+                <thead className="bg-sky-100">
+                  <tr>
+                    <th className="p-3">Name</th>
+                    <th className="p-3">Email</th>
+                    <th className="p-3">Phone</th>
+                    <th className="p-3">Skills</th>
+                    <th className="p-3">Experience</th>
+                    <th className="p-3 text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {freelancers.map((freelancer) => (
+                    <tr
+                      key={freelancer._id}
+                      className="hover:bg-sky-50 border-b"
+                    >
+                      <td className="p-3">{freelancer.name}</td>
+                      <td className="p-3">{freelancer.email}</td>
+                      <td className="p-3">{freelancer.phone}</td>
+                      <td className="p-3">{freelancer.skills}</td>
+                      <td className="p-3">{freelancer.experience}</td>
+                      <td className="p-3 text-center">
+                        <button
+                          onClick={() =>
+                            handleDelete("freelancers", freelancer._id)
+                          }
+                          className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                        >
+                          ❌
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+
+        {/* TRAINERS */}
+        {activeTab === "trainers" && (
+          <>
+            <h2 className="text-2xl font-bold text-sky-600 mb-4">
+              Trainer Form Data ({trainers.length})
+            </h2>
+            <div className="overflow-x-auto">
+              <table className="w-full border text-left">
+                <thead className="bg-sky-100">
+                  <tr>
+                    <th className="p-3">Name</th>
+                    <th className="p-3">Email</th>
+                    <th className="p-3">Phone</th>
+                    <th className="p-3">Skills</th>
+                    <th className="p-3">Education</th>
+                    <th className="p-3 text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {trainers.map((trainer) => (
+                    <tr key={trainer._id} className="hover:bg-sky-50 border-b">
+                      <td className="p-3">{trainer.name}</td>
+                      <td className="p-3">{trainer.email}</td>
+                      <td className="p-3">{trainer.phone}</td>
+                      <td className="p-3">{trainer.skills}</td>
+                      <td className="p-3">{trainer.education}</td>
+                      <td className="p-3 text-center">
+                        <button
+                          onClick={() =>
+                            handleDelete("trainers", trainer._id)
+                          }
+                          className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                        >
+                          ❌
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+
+        {/* FEEDBACK */}
+        {activeTab === "feedback" && (
+          <>
+            <h2 className="text-2xl font-bold text-sky-600 mb-4">
+              Feedback Messages ({feedbacks.length})
+            </h2>
+            <div className="overflow-x-auto">
+              <table className="w-full border text-left">
+                <thead className="bg-sky-100">
+                  <tr>
+                    <th className="p-3">Name</th>
+                    <th className="p-3">Email</th>
+                    <th className="p-3">Message</th>
+                    <th className="p-3 text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {feedbacks.map((fb) => (
+                    <tr key={fb._id} className="hover:bg-sky-50 border-b">
+                      <td className="p-3">{fb.name}</td>
+                      <td className="p-3">{fb.email}</td>
+                      <td className="p-3">{fb.message}</td>
+                      <td className="p-3 text-center">
+                        <button
+                          onClick={() => handleDelete("feedback", fb._id)}
+                          className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                        >
+                          ❌
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
