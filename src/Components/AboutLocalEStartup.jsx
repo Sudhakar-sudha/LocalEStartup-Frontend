@@ -33,7 +33,7 @@ const AboutLocalEStartup = () => {
          </h2>
          <p className="mt-4 text-lg text-gray-700 text-justify">
            Hi, I'm <strong>Sudhakar</strong> – a passionate freelancer and software developer who loves building
-           real-world solutions. My journey began on <strong>December 17, 2025</strong> while working on my
+           real-world solutions. My journey began on <strong>December 17, 2024</strong> while working on my
            college project. From that day onwards, I discovered my interest in creating and learning through
            hands-on projects.
            <br /><br />
