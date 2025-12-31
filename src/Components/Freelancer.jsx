@@ -4,49 +4,58 @@ import axios from "axios";
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const JoinFreelancerComponent = () => {
-const [showForm, setShowForm] = useState(false);
-const [freelancers, setFreelancers] = useState([]);
-const [formData, setFormData] = useState({
-  name: "",
-  email: "",
-  phone: "",
-  skills: "",
-  experience: "",
-});
+  const [showForm, setShowForm] = useState(false);
+  const [freelancers, setFreelancers] = useState([]);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    skills: "",
+    experience: "",
+  });
 
-// Fetch freelancers from backend
-useEffect(() => {
-  axios
-    .get(`${BASE_URL}/api/freelancers`)
-    .then((res) => setFreelancers(res.data))
-    .catch((err) => console.error("Error fetching freelancers", err));
-}, []);
+  // Fetch freelancers from backend
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}/api/freelancers`)
+      .then((res) => {
+        // Ensure res.data is an array
+        if (Array.isArray(res.data)) {
+          setFreelancers(res.data);
+        } else {
+          console.warn("Expected an array but got:", res.data);
+          setFreelancers([]);
+        }
+      })
+      .catch((err) => console.error("Error fetching freelancers", err));
+  }, []);
 
-// Handle input changes
-const handleChange = (e) => {
-  setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-};
 
-// Submit form with email validation
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    const res = await axios.post(`${BASE_URL}/api/freelancers`, formData);
+  // Handle input changes
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
-    // If success, add to list
-    setFreelancers((prev) => [res.data, ...prev]);
-    setFormData({ name: "", email: "", phone: "", skills: "", experience: "" });
-    setShowForm(false);
-  } catch (err) {
-    // If email already exists error (400)
-    if (err.response && err.response.status === 400) {
-      alert(err.response.data.message); // "Email already registered as a freelancer"
-    } else {
-      console.error("Error submitting freelancer", err);
-      alert("Failed to submit!");
+  // Submit form with email validation
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(`${BASE_URL}/api/freelancers`, formData);
+
+      // If success, add to list
+      setFreelancers((prev) => [res.data, ...prev]);
+      setFormData({ name: "", email: "", phone: "", skills: "", experience: "" });
+      setShowForm(false);
+    } catch (err) {
+      // If email already exists error (400)
+      if (err.response && err.response.status === 400) {
+        alert(err.response.data.message); // "Email already registered as a freelancer"
+      } else {
+        console.error("Error submitting freelancer", err);
+        alert("Failed to submit!");
+      }
     }
-  }
-};
+  };
 
 
   return (
@@ -160,26 +169,32 @@ const handleSubmit = async (e) => {
             Freelancers Joined
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {freelancers.map((f, index) => (
-              <motion.div
-                key={f._id || index}
-                className="bg-white rounded-lg shadow-lg p-5"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                <h4 className="text-xl font-semibold text-sky-500">{f.name}</h4>
-                {/* <p className="text-gray-600">{f.email}</p> */}
-                {/* <p className="text-gray-600">{f.phone}</p> */}
-                <p className="mt-2 text-gray-700">
-                  <strong>Skills:</strong> {f.skills}
-                </p>
-                {f.experience && (
-                  <p className="mt-1 text-gray-700">
-                    <strong>Experience:</strong> {f.experience}
-                  </p>
-                )}
-              </motion.div>
-            ))}
+            {freelancers.length > 0 ? (
+              freelancers.map((f, index) => (
+                <motion.div
+                  key={f._id || index}
+                  className="bg-white rounded-lg shadow-lg p-5"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <h4 className="text-xl font-semibold text-sky-500">{f.name}</h4>
+                  {f.skills && (
+                    <p className="mt-2 text-gray-700">
+                      <strong>Skills:</strong> {f.skills}
+                    </p>
+                  )}
+                  {f.experience && (
+                    <p className="mt-1 text-gray-700">
+                      <strong>Experience:</strong> {f.experience}
+                    </p>
+                  )}
+                </motion.div>
+              ))
+            ) : (
+              <p className="text-center col-span-full text-gray-500">
+                No freelancers found.
+              </p>
+            )}
           </div>
         </div>
       )}
