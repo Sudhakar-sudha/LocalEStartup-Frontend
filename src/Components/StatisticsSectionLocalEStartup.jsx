@@ -7,8 +7,8 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 const StatisticsSectionLocalEStartup = () => {
   const [stats, setStats] = useState({
     Product: '1',
-    liveProjects: '1',
-    clgProjects: '3+',
+    liveProjects: '3',
+    clgProjects: '5+',
     availability: '24/7',
   });
 

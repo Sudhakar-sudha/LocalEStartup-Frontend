@@ -8,7 +8,7 @@ const projects = [
     image: "https://res.cloudinary.com/dlfan4caj/image/upload/v1767203759/localestartupe_cabyfj.png",
     description:
       "LocalEStartup is an all-in-one platform where sellers can manage products and orders, customers can shop from trusted local stores with secure payments and fast delivery.",
-    tags: ["MERN", "RazerPay", "React Native", "TailwindCSS", "Admin Dashboard"],
+    tags: ["MERN Stack", "RazerPay", "React Native", "TailwindCSS", "Admin Dashboard"],
     demoLink: "https://localestartup.vercel.app/ecommerce",
     githubLink: "https://github.com/Sudhakar-sudha",
   },
@@ -19,7 +19,7 @@ const projects = [
     image: "https://res.cloudinary.com/dlfan4caj/image/upload/v1767203350/AmirthanOil_pigwy4.png",
     description:
       "Displays various oil products with order checkout, invoice generation, Razorpay payment integration, and a full admin dashboard.",
-    tags: ["MERN", "Razorpay", "Admin Dashboard"],
+    tags: ["MERN Stack", "Razorpay", "Admin Dashboard", "Invoice Generation","Stock Management","Order Tracking"],
     demoLink: "https://amirthanoil.vercel.app/",
     githubLink: "https://github.com/Sudhakar-sudha",
   },
@@ -29,7 +29,7 @@ const projects = [
     image: "https://res.cloudinary.com/dlfan4caj/image/upload/v1767203772/vprinttech_f7nggk.png",
     description:
       "V Print Tech is a MERN stack-based printing offset website showcasing printing services, allowing customers to explore and connect easily.",
-    tags: ["MERN", "TailwindCSS"],
+    tags: ["MERN Stack", "TailwindCSS"],
     demoLink: "https://vprinttech.netlify.app/",
     githubLink: "https://github.com/Sudhakar-sudha",
   },
@@ -40,7 +40,7 @@ const projects = [
     image: "https://res.cloudinary.com/dlfan4caj/image/upload/v1767203758/tancet_ynnaia.png",
     description:
       "A secure TANCET Quiz platform with instant scoring, winner display, and anti-cheat features. Auto-submits answers with a running timer.",
-    tags: ["MERN", "Tailwind"],
+    tags: ["MERN Stack", "Tailwind"],
     demoLink: "https://tancetquiz.vercel.app",
     githubLink: "https://github.com/Sudhakar-sudha",
   },
@@ -49,9 +49,9 @@ const projects = [
     type: "College Project",
     image: "https://res.cloudinary.com/dlfan4caj/image/upload/v1767204235/pickbazar_kdyhfw.png",
     description:
-      "Pickbazar is a MERN stack e-commerce platform that allows users to browse products, place orders, and manage their shopping experience seamlessly.",
-    tags: ["React"],
-    demoLink: "",
+      "Pickbazar is a MERN stack e-commerce Landing Page that allows users to browse products, place orders, and manage their shopping experience seamlessly.",
+    tags: ["React", "TailwindCSS"],
+    demoLink: "https://project-tptk.onrender.com",
     githubLink: "https://github.com/Sudhakar-sudha",
   },
   {
@@ -60,8 +60,8 @@ const projects = [
     image: "https://res.cloudinary.com/dlfan4caj/image/upload/v1767203351/Aibaik_wm01xu.png",
     description:
       "Restaurant menu listing with food ordering, table reservation, email verification, notifications, and secure payment integration using Razorpay.",
-    tags: ["MERN", "TailwindCSS", "Razorpay", "Email"],
-    demoLink: "",
+    tags: ["MERN Stack", "TailwindCSS", "Razorpay", "Email OTP Verificaiton"],
+    demoLink: "https://aibaik.vercel.app",
     githubLink: "https://github.com/Sudhakar-sudha",
   },
   {
@@ -70,8 +70,8 @@ const projects = [
     image: "https://res.cloudinary.com/dlfan4caj/image/upload/v1767203350/Start_Gym_zuuwiw.png",
     description:
       "Gym equipment and nutrition product ordering system with trainer booking functionality.",
-    tags: ["MERN", "TailwindCSS", "Booking System"],
-    demoLink: "",
+    tags: ["MERN Stack", "TailwindCSS", "Booking System", "Invoice Generation"],
+    demoLink: "https://nstargym.vercel.app",
     githubLink: "https://github.com/Sudhakar-sudha",
   },
   {
