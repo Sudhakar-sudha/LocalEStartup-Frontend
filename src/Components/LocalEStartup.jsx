@@ -11,7 +11,7 @@ import Navbar from "./NavbarLocalEStartup";
 import StatisticsSectionLocalEStartup from "./StatisticsSectionLocalEStartup";
 import TrainingGuidanceCard from "./TrainingandGuidance";
 import JoinFreelancerComponent from "./Freelancer";
-import { FaFire } from "react-icons/fa";
+import { FaFire, FaInstagram, FaYoutube, FaLinkedin, FaGithub } from "react-icons/fa";
 const LocalEStartup = () => {
 
   const handleScroll = (id) => {
@@ -181,7 +181,7 @@ const LocalEStartup = () => {
         <TrainingGuidanceCard />
       </section>
 
-       <section id="Freelancers">
+      <section id="Freelancers">
         <JoinFreelancerComponent />
       </section>
 
@@ -190,24 +190,74 @@ const LocalEStartup = () => {
       </section>
 
 
-{/* Footer */}
-<footer id="contact" className="py-4 text-center bg-gray-800 text-white">
-  <div className="space-y-1">
-    <p>&copy; 2025 LocalEStartup. All Rights Reserved.</p>
-    <p className="flex items-center justify-center gap-1">
-      Developed by{" "}
-      <a
-        href="https://sudhakar-portfolio.vercel.app"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-400 hover:text-white flex items-center gap-1"
+      {/* Footer */}
+      <footer
+        id="contact"
+        className="py-4 px-6 bg-gray-800 text-white"
       >
-        <FaFire className="text-orange-500" /> Sudha
-      </a>
-    </p>
-  </div>
-</footer>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
 
+          {/* Right Side */}
+          <div className="text-center md:text-right space-y-1">
+            <p>&copy; 2025 LocalEStartup. All Rights Reserved.</p>
+
+            <p className="flex items-center justify-center md:justify-end gap-1">
+              Developed by{" "}
+              <a
+                href="https://sudhakar-portfolio.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-white flex items-center gap-1"
+              >
+                <FaFire className="text-orange-500" />
+                Sudha
+              </a>
+            </p>
+          </div>
+
+          {/* Left Side - Social Icons */}
+          <div className="flex items-center gap-5 text-2xl">
+
+            <a
+              href="https://instagram.com/localestartup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-500 transition"
+            >
+              <FaInstagram />
+            </a>
+
+            <a
+              href="https://youtube.com/@localestartup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-red-500 transition"
+            >
+              <FaYoutube />
+            </a>
+
+            <a
+              href="https://linkedin.com/in/localestartup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-500 transition"
+            >
+              <FaLinkedin />
+            </a>
+
+            <a
+              href="https://github.com/localestartup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-400 transition"
+            >
+              <FaGithub />
+            </a>
+
+          </div>
+
+        </div>
+      </footer>
 
     </div>
   );
