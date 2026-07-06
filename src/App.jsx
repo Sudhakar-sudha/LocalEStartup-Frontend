@@ -36,10 +36,10 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LocalEStartup />} />
-        <Route path="/ecommerce" element={<Ecommerce />} />
-        <Route path="/trainingcontact" element={<TrainingGuidance />} />
-        <Route path="/localestartupAdmin" element={<FreelancerAdmin/>} />
+        {/* <Route path="/" element={<LocalEStartup />} /> */}
+        <Route path="/" element={<Ecommerce />} />
+        {/* <Route path="/trainingcontact" element={<TrainingGuidance />} /> */}
+        {/* <Route path="/localestartupAdmin" element={<FreelancerAdmin/>} /> */}
         <Route path="/selling" element={<HomeSection />} />
         <Route path="/register" element={<Register />} />
         <Route path="/sellerlogin" element={<Login />} />

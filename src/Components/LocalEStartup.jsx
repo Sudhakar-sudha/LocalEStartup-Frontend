@@ -199,7 +199,7 @@ const LocalEStartup = () => {
 
           {/* Right Side */}
           <div className="text-center md:text-right space-y-1">
-            <p>&copy; 2025 LocalEStartup. All Rights Reserved.</p>
+            <p>&copy; {new Date().getFullYear()} LocalEStartup. All Rights Reserved.</p>
 
             <p className="flex items-center justify-center md:justify-end gap-1">
               Developed by{" "}
